@@ -244,9 +244,9 @@ Description:
 
 ##Version 1.0.0
 
-**Release date**: 10 Nov 2014
+**Release date**: 29 Jan 2015
 
- - Initialization version support charging via card and SMS. 
+ - Initialization version support charging via phone card, SMS and e-banking
  - Support checking transaction status
 
 #Known Issues
@@ -259,6 +259,7 @@ There's no known issues for now
 They are a pair of key, used to authorize your app (game) with SDK's server.
 
 **How can i get my application id and client key?**
+
 1. Goto https://developers.app360.vn
 2. Login if you already have an account or register a new one
 3. Open your application in App360 dashboard, select Information tab
