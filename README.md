@@ -52,7 +52,7 @@ Choose '**Create groups**' and select '**Copy items if needed**' to copy sdk to 
 
 The App360 iOS SDK requires additional frameworks to operate. Make sure to have them in your project. If you fail to do so, your project will not compile and XCode will produce errors.
 
-Navigate to the General tab, scroll down to **Linked Frameworks and Libraries** and then hit the "+" button.
+Navigate to the General tab, scroll down to **Linked Frameworks and Libraries** and then hit the "**+**" button.
 
 Search for and add the following frameworks:
 
@@ -281,10 +281,10 @@ Based on several tests, it should adds below 1MB depending of the size of your a
 The bigger your app is, the less the App360 iOS SDK will have an impact on the final size.
 
 #Support
-Please contact [us](mailto:tuantm@toivui.com) for general inquiries.
+Please contact [us](mailto:support@app360.vn) for general inquiries.
 
 ##For a technical issue
-In case you have a technical issue, you can reach [our technical support team](mailto:tuantm@toivui.com).
+In case you have a technical issue, you can reach [our technical support team](mailto:support@app360.vn).
 Please provide the following information when you reach out, it'll allow us to help you much more quickly.
 
  - **The library version** you're using. You can get the precise number by
