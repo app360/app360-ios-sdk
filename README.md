@@ -68,8 +68,8 @@ Call this function before using any API of Payment SDK
 
 ```objective-c
 [App360SDK initializeWithApplicationId:@"your-application-id"
-                                 clientKey:@"your-client-key"
-                                     block:^(MOGSession *session, NSError *error) {
+                             clientKey:@"your-client-key"
+                                 block:^(MOGSession *session, NSError *error) {
         
         if (error) {
             //init failed
