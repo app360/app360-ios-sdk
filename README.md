@@ -256,6 +256,7 @@ There's no known issues for now
 #FAQ
 
 **What is a application id and client key?**
+
 They are a pair of key, used to authorize your app (game) with SDK's server.
 
 **How can i get my application id and client key?**
@@ -266,6 +267,7 @@ They are a pair of key, used to authorize your app (game) with SDK's server.
 4. All key you need will be there
 
 **How much does the App360 iOS SDK add to my application size?**
+
 The latest version of the SDK weighs less than 2MB. But this isn't the size which will be added to your archive when submitted to iTunes.
 Based on several tests, it should adds below 1MB depending of the size of your application.
 The bigger your app is, the less the App360 iOS SDK will have an impact on the final size.
