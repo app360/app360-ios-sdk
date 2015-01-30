@@ -38,6 +38,10 @@ To get started, drag the SDK onto Linked Frameworks and Libraries section :
 
 ![Imgur](http://i.imgur.com/y1cY5gD.png)
 
+Drag and drop SDK's bundle into your project
+
+![Imgur](http://i.imgur.com/YoSMVNE.png)
+
 Choose '**Create groups**' and select '**Copy items if needed**' to copy sdk to your project folder
 
 ![Imgur](http://i.imgur.com/MOTKyPG.png)
