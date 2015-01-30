@@ -14,7 +14,7 @@ To using any function of App360SDK, you need to configure application id and cli
 
 | App360SDK Version | Minimum iOS Target | 				Notes 			|
 |:-----------------:|:------------------:|:----------------------------:|
-|1.0.0|6.0|Xcode 6.1 is required. It compiles against the armv7, armv7s and arm64 architectures (+ i386 for the simulator)|
+|1.0.0|6.0|Xcode 6.1 is required. Support armv7, armv7s and arm64 architectures (+ i386 for the simulator)|
 
 ###Library compatibility
 
