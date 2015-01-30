@@ -12,6 +12,10 @@ To using any function of App360SDK, you need to configure application id and cli
 
 ##Development Environment
 
+| App360SDK Version | Minimum iOS Target | 				Notes 			|
+|:-----------------:|:------------------:|:----------------------------:|
+| 		1.0.0		|		 6.0 		 |	  Xcode 6.1 is required.    |
+
 ###Library compatibility
 
 The App360 iOS SDK supports all iOS 6.0 and above versions. It compiles against the armv7, armv7s and arm64 architectures (+ i386 for the simulator).
@@ -60,7 +64,7 @@ Search for and add the following frameworks:
 
 ![Imgur](http://i.imgur.com/K7odm6U.png)
 
-##Initialize the library
+##Initiallize the library
 
 ![Imgur](http://i.imgur.com/PVqZ5bP.png)
 
