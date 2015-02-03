@@ -288,7 +288,7 @@ In case you have a technical issue, you can reach [our technical support team](m
 Please provide the following information when you reach out, it'll allow us to help you much more quickly.
 
  - **The library version** you're using. You can get the precise number by
-   printing the result of the `[App360SDK versionDescription];` method.
+   printing the result of the `[App360SDK getSDKVersion];` method.
  - **The platform** used to produce the problem (device model or simulator),
    and the iOS version.
  - **The steps** to reproduce the problem.
