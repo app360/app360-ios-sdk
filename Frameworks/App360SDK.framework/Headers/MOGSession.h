@@ -68,7 +68,7 @@
  *  When the session is created, it’s the application’s responsibility to cache the session token returned together with the app-scoped ID. 
  *  There’s no way to re-retrieve this token, other than creating a new token altogether.
  *
- *  @param scopeID   random UUID with lowercase hexadecimal digits. Optional
+ *  @param scopeId   random UUID with lowercase hexadecimal digits. Optional
  *  @param userInfo  additional key/value defined by application
  *  @param block     The block to execute
  *  It should have the following argument signature: `^(MOGSession *session, NSError *error)`.
@@ -92,13 +92,13 @@
                                block:(MOGSessionResultBlock)block;
 
 /**
- *  To retrieve session token information
+ *  To open session with token information
  *
  *  @param sessionId Id of the session want to get info
  *  @param block     The block to execute
  *  It should have the following argument signature: `^(MOGSession *session, NSError *error)`.
  */
-+ (void)getSessionWithId:(NSString *)sessionId
-                   block:(MOGSessionResultBlock)block;
++ (void)openSessionWithId:(NSString *)sessionId
+                    block:(MOGSessionResultBlock)block;
 
 @end

@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
-//! Project version number for AppScopeID.
-FOUNDATION_EXPORT double AppScopeIDVersionNumber;
+//! Project version number for App360SDK.
+FOUNDATION_EXPORT double App360SDKVersionNumber;
 
-//! Project version string for AppScopeID.
-FOUNDATION_EXPORT const unsigned char AppScopeIDVersionString[];
+//! Project version string for App360SDK.
+FOUNDATION_EXPORT const unsigned char App360SDKVersionString[];
 
 #import "MOGUser.h"
 #import "MOGSession.h"
@@ -27,7 +27,6 @@ FOUNDATION_EXPORT const unsigned char AppScopeIDVersionString[];
  
  @param applicationId   ID of the app that the token is issued for
  @param clientKey       secret key of the app that the token is issued for
- @param scopedId        default scoped user id you want to login, eg. device UUID
  @param block           The block to execute
  It should have the following argument signature: `^(MOGSession *session, NSError *error)`.
 */
@@ -36,7 +35,7 @@ FOUNDATION_EXPORT const unsigned char AppScopeIDVersionString[];
                               block:(MOGSessionResultBlock)block;
 
 /*!
- @abstract Present login dialog.
+ @abstract Show the default login view controller. Use this form to login using anonymous user, facebook account or app360 account...
  */
 + (void)showLoginViewController;
 
@@ -59,5 +58,10 @@ FOUNDATION_EXPORT const unsigned char AppScopeIDVersionString[];
  @abstract The current application sub channel that was used to configure App360 SDK framework.
  */
 + (NSString *)getSubChannel;
+
+/*!
+ @abstract Get SDK version
+ */
++ (NSString *)getSDKVersion;
 
 @end

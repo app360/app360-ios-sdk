@@ -11,44 +11,48 @@
 @interface MOGPaymentResponseObject : NSObject
 
 /*!
- @abstract Kết quả của request (Thành công / Thất bại)
+ @abstract Response code (Success or failure)
  */
 @property (nonatomic, assign) MOGAPICode code;
 
 /*!
- @abstract Thông tin chi tiết tương ứng với từng request
+ @abstract Details infomation for each request
  */
 @property (nonatomic, strong) id details;
 
 /*!
- @abstract Mã định danh cho giao dịch. Dùng cho việc đối soát hoặc kiểm tra trạng thái giao dịch
+ @abstract Id of the transaction
  */
 @property (nonatomic, strong) NSString *transactionId;
 
 /*!
- @abstract Thông tin payload gửi cùng request
+ @abstract Payload string that send with charging request
  */
 @property (nonatomic, strong) NSString *payload;
 
 /*!
- @abstract Trạng thái của giao dịch
+ @abstract Status of transaction
+ 
+ @see MOGTransactionStatus
  */
 @property (nonatomic, assign) MOGTransactionStatus status;
 
 /*!
- @abstract Loại giao dịch (SMS/Phone card/E-banking)
+ @abstract Transaction type (SMS/Phone card/E-banking)
+ 
+ @see MOGTransactionType
  */
 @property (nonatomic, assign) MOGTransactionType type;
 
 /*!
- @abstract Thông báo kèm theo trong trường hợp API trả về lỗi
+ @abstract Description for error code
  */
 @property (nonatomic, strong) NSString *message;
 
 /**
- *  Hàm khởi tạo với đầu vào dạng JSON
+ *  Initiallize method
  *
- *  @param JSON dữ liệu đầu vào dạng JSON
+ *  @param JSON json string from response
  *
  */
 - (instancetype)initWithJSON:(id)JSON;

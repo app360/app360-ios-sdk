@@ -11,27 +11,27 @@
 @interface MOGSMSItem : NSObject
 
 /*!
- @abstract Cú pháp tin nhắn
+ @abstract Syntax of sms
  */
 @property (nonatomic, strong, readonly ) NSString *syntax;
 
 /*!
- @abstract Đơn vị tiền tệ tương ứng với 'amount'
+ @abstract Currency for sms amount
  */
 @property (nonatomic, strong, readonly ) NSString *currency;
 
 /*!
- @abstract Đầu số gửi đến
+ @abstract Phone number that sms will send to (eg: 8038, 8738...)
  */
 @property (nonatomic, strong, readonly ) NSString *recipient;
 
 /*!
- @abstract Số tiền sẽ nạp / Mệnh giá của tin nhắn
+ @abstract Number of cash that user will be charged for this sms
  */
 @property (nonatomic, strong, readonly ) NSString *amount;
 
 /*!
- @abstract Giá trị quy đổi (Ví dụ: 20 coin)
+ @abstract Exchange description (eg: 100 golds or 20 crystals...)
  */
 @property (nonatomic, strong, readwrite) NSString *exchangeDescription;
 

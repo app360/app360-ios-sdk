@@ -11,8 +11,8 @@
 @interface MOGBankingResponseObject : MOGPaymentResponseObject
 
 /*!
- * @abstract Đường dẫn trang thanh toán cho giao dịch hiện tại.
- * User cần thực hiện giao dịch trên trang web với địa chỉ này.
+ * @abstract URL of charging web page for this transaction
+ * User must pay via this web page to finish this transaction
  */
 @property (nonatomic, strong) NSURL *payURL;
 

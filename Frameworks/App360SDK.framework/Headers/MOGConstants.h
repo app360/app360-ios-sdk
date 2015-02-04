@@ -266,13 +266,28 @@ extern NSString *const kMOGServiceNameApp360;
 /// @name Blocks
 ///--------------------------------------
 
+/*! @abstract Boolean block. Return result is success or not. If not, return with error object. */
 typedef void (^MOGBooleanResultBlock)(BOOL succeeded, NSError *error);
+
+/*! @abstract Session block. Return session if success. If not, return with error */
 typedef void (^MOGSessionResultBlock)(MOGSession *session, NSError *error);
+
+/*! @abstract User block. Return user if success. If not, return with error */
 typedef void (^MOGUserResultBlock)(MOGUser *user, NSError *error);
+
+/*! @abstract App360 user block. Return App360 user if success. If not, return with error */
 typedef void (^MOGM360UserResultBlock)(MOGM360User *user, NSError *error);
+
+/*! @abstract SMS charging response block. Return SMS response if success. If not,return with error */
 typedef void (^MOGSMSResponseBlock)(MOGSMSResponseObject *responseObject, NSError *error);
+
+/*! @abstract Phone card charging response block. Return phone card response if success. If not,return with error */
 typedef void (^MOGCardResponseBlock)(MOGCardResponseObject *responseObject, NSError *error);
+
+/*! @abstract E-banking charging response block. Return e-banking response if success. If not,return with error */
 typedef void (^MOGBankingResponseBlock)(MOGBankingResponseObject *responseObject, NSError *error);
+
+/*! @abstract payment response block. Return payment response if success. If not,return with error */
 typedef void (^MOGPaymentResponseBlock)(MOGPaymentResponseObject *responseObject, NSError *error);
 
 ///--------------------------------------

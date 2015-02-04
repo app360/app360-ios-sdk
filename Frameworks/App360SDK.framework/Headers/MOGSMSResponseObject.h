@@ -13,17 +13,19 @@
 @interface MOGSMSResponseObject : MOGPaymentResponseObject
 
 /*!
- @abstract Đơn vị tiền tệ
+ @abstract Currency of sms amount
  */
 @property (nonatomic, strong) NSString *currency;
 
 /*!
- @abstract Cú pháp tin nhắn
+ @abstract Syntax of sms
  */
 @property (nonatomic, strong) NSString *syntax;
 
 /*!
- @abstract Mảng các <MOGSMSItem>
+ @abstract Array of <MOGSMSItem>
+ 
+ @see MOGSMSItem
  */
 @property (nonatomic, strong) NSArray *services;
 

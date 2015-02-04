@@ -11,17 +11,17 @@
 @interface MOGCardResponseObject : MOGPaymentResponseObject
 
 /*!
- @abstract Nhà mạng tương ứng với thẻ được giao dịch
+ @abstract Service provider for this transaction
  */
 @property (nonatomic, assign) MOGVendor vendor;
 
 /*!
- @abstract Mã thẻ dùng cho giao dịch
+ @abstract PIN number of phone card use for this transaction
  */
 @property (nonatomic, strong) NSString *cardCode;
 
 /*!
- @abstract Số se-ri của thẻ dùng cho giao dịch
+ @abstract Serial number of phone card use for this transaction
  */
 @property (nonatomic, strong) NSString *cardSerial;
 

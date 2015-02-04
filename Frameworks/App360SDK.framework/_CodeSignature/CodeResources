@@ -6,39 +6,39 @@
 	<dict>
 		<key>Headers/App360SDK.h</key>
 		<data>
-		XBsjaeU8xrTnD+AxfZY2l2UmkS4=
+		hJwvKuJUgkSbgFaxuFKQqgFfklM=
 		</data>
 		<key>Headers/MOGBankingResponseObject.h</key>
 		<data>
-		tuEV46tVbniMGfBUiQ7uboukiBM=
+		6eN95KsTc/Io9zdtvZFcYf8SvnY=
 		</data>
 		<key>Headers/MOGCardResponseObject.h</key>
 		<data>
-		ujHTVcvsc9tWtC2LC/u1y0zH35M=
+		z96WBXHrOA7eZ4O+xdSa/h9QiUs=
 		</data>
 		<key>Headers/MOGConstants.h</key>
 		<data>
-		ncLAJhopz6yafCYem6nU7QBSuuA=
+		JgzTq0BJOafouAXJyE7fOt8e1uI=
 		</data>
 		<key>Headers/MOGPaymentResponseObject.h</key>
 		<data>
-		HzzbIC/5eg3hdUql9CcBe1TUk4c=
+		xI3Yf+w3jmSUqBZQJ4y+mSyEb6w=
 		</data>
 		<key>Headers/MOGPaymentSDK.h</key>
 		<data>
-		TWEDt0guUlU936Txa24wOuL4XYA=
+		iYzHZMrKW+11ZTvfYA+UEDp+b/E=
 		</data>
 		<key>Headers/MOGSMSItem.h</key>
 		<data>
-		c4TtPKdddDYMtT4eMH/FEkI3fGg=
+		0RUoUmRRszRv76rjt69jJSuwZjU=
 		</data>
 		<key>Headers/MOGSMSResponseObject.h</key>
 		<data>
-		/VZlVPNMMyPfHvVJnb7mW9GC7GM=
+		vjnDyWploWiOpyXpblvtjUYNWfM=
 		</data>
 		<key>Headers/MOGSession.h</key>
 		<data>
-		k39eNUPdK2iqHv5FVZeLt5U9/os=
+		XM+FG3ZCOc9evgROtQl3jR+rZYI=
 		</data>
 		<key>Headers/MOGUser.h</key>
 		<data>
@@ -46,7 +46,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		kIjO6iNgGvmdKOlT2mtXDgytHMc=
+		LiEUQcBre7qzF6wvw+T0O++g2oA=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -66,39 +66,39 @@
 	<dict>
 		<key>Headers/App360SDK.h</key>
 		<data>
-		XBsjaeU8xrTnD+AxfZY2l2UmkS4=
+		hJwvKuJUgkSbgFaxuFKQqgFfklM=
 		</data>
 		<key>Headers/MOGBankingResponseObject.h</key>
 		<data>
-		tuEV46tVbniMGfBUiQ7uboukiBM=
+		6eN95KsTc/Io9zdtvZFcYf8SvnY=
 		</data>
 		<key>Headers/MOGCardResponseObject.h</key>
 		<data>
-		ujHTVcvsc9tWtC2LC/u1y0zH35M=
+		z96WBXHrOA7eZ4O+xdSa/h9QiUs=
 		</data>
 		<key>Headers/MOGConstants.h</key>
 		<data>
-		ncLAJhopz6yafCYem6nU7QBSuuA=
+		JgzTq0BJOafouAXJyE7fOt8e1uI=
 		</data>
 		<key>Headers/MOGPaymentResponseObject.h</key>
 		<data>
-		HzzbIC/5eg3hdUql9CcBe1TUk4c=
+		xI3Yf+w3jmSUqBZQJ4y+mSyEb6w=
 		</data>
 		<key>Headers/MOGPaymentSDK.h</key>
 		<data>
-		TWEDt0guUlU936Txa24wOuL4XYA=
+		iYzHZMrKW+11ZTvfYA+UEDp+b/E=
 		</data>
 		<key>Headers/MOGSMSItem.h</key>
 		<data>
-		c4TtPKdddDYMtT4eMH/FEkI3fGg=
+		0RUoUmRRszRv76rjt69jJSuwZjU=
 		</data>
 		<key>Headers/MOGSMSResponseObject.h</key>
 		<data>
-		/VZlVPNMMyPfHvVJnb7mW9GC7GM=
+		vjnDyWploWiOpyXpblvtjUYNWfM=
 		</data>
 		<key>Headers/MOGSession.h</key>
 		<data>
-		k39eNUPdK2iqHv5FVZeLt5U9/os=
+		XM+FG3ZCOc9evgROtQl3jR+rZYI=
 		</data>
 		<key>Headers/MOGUser.h</key>
 		<data>
