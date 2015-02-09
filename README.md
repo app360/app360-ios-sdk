@@ -4,6 +4,33 @@
 
 Payment SDK is a part of App360SDK, provides easiest way to pay any item via sms, phone card and e-banking
 
+```flow
+st=>start: Start
+e=>end
+op_register_acc=>operation: Register an account App360 Developer
+op_add_new_app=>operation: Add new applcation
+op_get_app_keys=>operation: Get application keys
+op_integrate_appscoped_id=>operation: Integrate with Appscoped ID SDK
+op_integrate_payment=>operation: Integrate with Payment SDK
+
+cond_have_acc=>condition: Have developer account?
+cond_have_app=>condition: Have an application?
+cond_have_payment=>condition: Have payment in app?
+
+st->cond_have_acc
+cond_have_acc(yes)->cond_have_app
+cond_have_acc(no)->op_register_acc
+op_register_acc->cond_have_app
+cond_have_app(yes)->op_get_app_keys
+cond_have_app(no)->op_add_new_app
+op_add_new_app->op_get_app_keys
+op_get_app_keys->op_integrate_appscoped_id
+op_integrate_appscoped_id->cond_have_payment
+cond_have_payment(yes)->op_integrate_payment
+cond_have_payment(no)->e
+op_integrate_payment->e
+```
+
 #Requirements
 
 ##Application Id & Client key
