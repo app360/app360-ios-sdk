@@ -4,6 +4,10 @@
 
 Payment SDK is a part of App360SDK, provides easiest way to pay any item via sms, phone card and e-banking
 
+App360 SDK 's Integration Flow
+
+![Imgur](http://i.imgur.com/PXdCmb3.png)
+
 #Requirements
 
 ##Application Id & Client key
