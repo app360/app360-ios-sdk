@@ -8,9 +8,25 @@
 		<data>
 		hJwvKuJUgkSbgFaxuFKQqgFfklM=
 		</data>
+		<key>Headers/MOGBankingChargingDataSource.h</key>
+		<data>
+		vWt+ySZRw8A/W/SgjK/M6gs/5QA=
+		</data>
+		<key>Headers/MOGBankingChargingDelegate.h</key>
+		<data>
+		sDjekL0gxNX1hMkapHNfHiMo2TI=
+		</data>
 		<key>Headers/MOGBankingResponseObject.h</key>
 		<data>
 		6eN95KsTc/Io9zdtvZFcYf8SvnY=
+		</data>
+		<key>Headers/MOGCardChargingDataSource.h</key>
+		<data>
+		DM/aJrsf3F3N/6NS4mJGhPrS5zc=
+		</data>
+		<key>Headers/MOGCardChargingDelegate.h</key>
+		<data>
+		z1H6dCsqz/O9HmBjP7zfIJVzb/4=
 		</data>
 		<key>Headers/MOGCardResponseObject.h</key>
 		<data>
@@ -18,7 +34,7 @@
 		</data>
 		<key>Headers/MOGConstants.h</key>
 		<data>
-		JgzTq0BJOafouAXJyE7fOt8e1uI=
+		8NYUd3iN8WXU5loLNV/UxKEexIY=
 		</data>
 		<key>Headers/MOGPaymentResponseObject.h</key>
 		<data>
@@ -26,7 +42,15 @@
 		</data>
 		<key>Headers/MOGPaymentSDK.h</key>
 		<data>
-		iYzHZMrKW+11ZTvfYA+UEDp+b/E=
+		aD+/GRAa/O4a1o4F+z0/NhB/Z1M=
+		</data>
+		<key>Headers/MOGSMSChargingDataSource.h</key>
+		<data>
+		Kzx1nJxiCRSTz+3jOi2iwXd2Yq4=
+		</data>
+		<key>Headers/MOGSMSChargingDelegate.h</key>
+		<data>
+		93lmgswQy0BF0qqdkl7cPGFNSH8=
 		</data>
 		<key>Headers/MOGSMSItem.h</key>
 		<data>
@@ -46,7 +70,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		LiEUQcBre7qzF6wvw+T0O++g2oA=
+		8eEMZZd2claOYLjLTExZwmR572A=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -68,9 +92,25 @@
 		<data>
 		hJwvKuJUgkSbgFaxuFKQqgFfklM=
 		</data>
+		<key>Headers/MOGBankingChargingDataSource.h</key>
+		<data>
+		vWt+ySZRw8A/W/SgjK/M6gs/5QA=
+		</data>
+		<key>Headers/MOGBankingChargingDelegate.h</key>
+		<data>
+		sDjekL0gxNX1hMkapHNfHiMo2TI=
+		</data>
 		<key>Headers/MOGBankingResponseObject.h</key>
 		<data>
 		6eN95KsTc/Io9zdtvZFcYf8SvnY=
+		</data>
+		<key>Headers/MOGCardChargingDataSource.h</key>
+		<data>
+		DM/aJrsf3F3N/6NS4mJGhPrS5zc=
+		</data>
+		<key>Headers/MOGCardChargingDelegate.h</key>
+		<data>
+		z1H6dCsqz/O9HmBjP7zfIJVzb/4=
 		</data>
 		<key>Headers/MOGCardResponseObject.h</key>
 		<data>
@@ -78,7 +118,7 @@
 		</data>
 		<key>Headers/MOGConstants.h</key>
 		<data>
-		JgzTq0BJOafouAXJyE7fOt8e1uI=
+		8NYUd3iN8WXU5loLNV/UxKEexIY=
 		</data>
 		<key>Headers/MOGPaymentResponseObject.h</key>
 		<data>
@@ -86,7 +126,15 @@
 		</data>
 		<key>Headers/MOGPaymentSDK.h</key>
 		<data>
-		iYzHZMrKW+11ZTvfYA+UEDp+b/E=
+		aD+/GRAa/O4a1o4F+z0/NhB/Z1M=
+		</data>
+		<key>Headers/MOGSMSChargingDataSource.h</key>
+		<data>
+		Kzx1nJxiCRSTz+3jOi2iwXd2Yq4=
+		</data>
+		<key>Headers/MOGSMSChargingDelegate.h</key>
+		<data>
+		93lmgswQy0BF0qqdkl7cPGFNSH8=
 		</data>
 		<key>Headers/MOGSMSItem.h</key>
 		<data>

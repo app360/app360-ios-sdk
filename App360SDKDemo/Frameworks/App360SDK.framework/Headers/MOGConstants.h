@@ -65,45 +65,52 @@ typedef NS_ENUM(uint8_t, MOGLogLevel) {
 };
 
 /*!
- `MOGAmount` enum specifies different supported value of sms amount.
+ `MOGSMSAmount` enum specifies different supported value of sms amount.
  */
-typedef NS_OPTIONS(NSInteger, MOGAmount) {
+typedef NS_OPTIONS(NSInteger, MOGSMSAmount) {
     /*!
      Amount with value 500 VND
      */
-    MOGAmount500   = 1 << 0,
+    MOGSMSAmount500   = 1 << 0,
     /*!
      Amount with value 1000 VND
      */
-    MOGAmount1000  = 1 << 1,
+    MOGSMSAmount1000  = 1 << 1,
     /*!
      Amount with value 2000 VND
      */
-    MOGAmount2000  = 1 << 2,
+    MOGSMSAmount2000  = 1 << 2,
     /*!
      Amount with value 3000 VND
      */
-    MOGAmount3000  = 1 << 3,
+    MOGSMSAmount3000  = 1 << 3,
     /*!
      Amount with value 4000 VND
      */
-    MOGAmount4000  = 1 << 4,
+    MOGSMSAmount4000  = 1 << 4,
     /*!
      Amount with value 5000 VND
      */
-    MOGAmount5000  = 1 << 5,
+    MOGSMSAmount5000  = 1 << 5,
     /*!
      Amount with value 10000 VND
      */
-    MOGAmount10000 = 1 << 6,
+    MOGSMSAmount10000 = 1 << 6,
     /*!
      Amount with value 15000 VND
      */
-    MOGAmount15000 = 1 << 7,
+    MOGSMSAmount15000 = 1 << 7,
     /*!
      Amount that contains all values above
      */
-    MOGAmountAll   = MOGAmount500 | MOGAmount1000 | MOGAmount2000 | MOGAmount3000 | MOGAmount4000 | MOGAmount5000 | MOGAmount10000 | MOGAmount15000
+    MOGSMSAmountAll   = MOGSMSAmount500   |
+                        MOGSMSAmount1000  |
+                        MOGSMSAmount2000  |
+                        MOGSMSAmount3000  |
+                        MOGSMSAmount4000  |
+                        MOGSMSAmount5000  |
+                        MOGSMSAmount10000 |
+                        MOGSMSAmount15000
 };
 
 /*!
