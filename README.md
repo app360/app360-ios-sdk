@@ -132,8 +132,6 @@ To save your time, we provide pre-build payment form, include sms, phone card an
 
 See App360SDK in action: http://marvl.in/2b575a
 
-***Choose payment method form***
-
 ![Imgur](http://i.imgur.com/1BvENrv.jpg)![Imgur](http://i.imgur.com/NZLHq6y.jpg)
 
 
