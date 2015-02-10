@@ -134,19 +134,19 @@ See App360SDK in action: http://marvl.in/2b575a
 
 ***Choose payment method form***
 
-![Imgur](http://i.imgur.com/LC0W4Hp.jpg)
+![Imgur](http://i.imgur.com/1BvENrv.jpg)
 
 ***SMS charging form***
 
-![Imgur](http://i.imgur.com/aMgJRds.jpg)
+![Imgur](http://i.imgur.com/NZLHq6y.jpg)
 
 ***Phone card charging form***
 
-![Imgur](http://i.imgur.com/AWiJ7Fy.jpg)
+![Imgur](http://i.imgur.com/960YHbW.jpg)
 
 ***E-Banking charging form***
 
-![Imgur](http://i.imgur.com/XzkpRaT.jpg)
+![Imgur](http://i.imgur.com/5twccza.jpg)
 
 #Card Charging
 
