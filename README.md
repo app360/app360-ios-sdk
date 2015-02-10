@@ -130,19 +130,19 @@ Description:
 
 To save your time, we provide pre-build payment form, include sms, phone card and e-banking charging form. We also provide a form to show all supported payment method, user can choose which method that he/she want to use to purchase item.
 
-Choose payment method form
+***Choose payment method form***
 
 ![Imgur](http://i.imgur.com/zdxr9WI.png)
 
-SMS charging form
+***SMS charging form***
 
 ![Imgur](http://i.imgur.com/i6QBmw5.png)
 
-Phone card charging form
+***Phone card charging form***
 
 ![Imgur](http://i.imgur.com/V1sE4L6.png)
 
-E-Banking charging form
+***E-Banking charging form***
 
 ![Imgur](http://i.imgur.com/bEGz0E7.png)
 
