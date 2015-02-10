@@ -138,7 +138,7 @@ See App360SDK in action: http://marvl.in/2b575a
 ![Imgur](http://i.imgur.com/960YHbW.jpg)![Imgur](http://i.imgur.com/5twccza.jpg)
 
 
-#Make transaction via payment prebuild form
+#Using payment prebuild form
 
 ##Card Charging
 ```objective-c
@@ -161,7 +161,7 @@ See App360SDK in action: http://marvl.in/2b575a
                                           payload:payload];
 ```
 
-#Make transaction via payment API
+#Using payment API
 
 ##Card Charging
 
