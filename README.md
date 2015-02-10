@@ -137,7 +137,33 @@ See App360SDK in action: http://marvl.in/2b575a
 
 ![Imgur](http://i.imgur.com/960YHbW.jpg)![Imgur](http://i.imgur.com/5twccza.jpg)
 
-#Card Charging
+
+#Make transaction via payment prebuild form
+
+##Card Charging
+```objective-c
+[MOGPaymentSDK makePhoneCardTransactionWithDelegate:self
+                                         datasource:self
+                                            payload:payload];
+```
+
+##SMS Charging
+
+```objective-c
+[MOGPaymentSDK makeSMSTransactionWithDelegate:self
+                                   datasource:self
+                                      payload:payload];
+```
+##E-Banking Charging
+```objective-c
+[MOGPaymentSDK makeBankingTransactionWithDelegate:self
+                                       datasource:self
+                                          payload:payload];
+```
+
+#Make transaction via payment API
+
+##Card Charging
 
 To charge via phone card, please use the API below
 
@@ -162,7 +188,7 @@ Description:
 - *CARD_SERIAL*: The serial of the phone card
 - *SOME_CUSTOM_PAYLOAD*: Some custom string you want to send to your server when transaction finished.
 
-#SMS Charging
+##SMS Charging
 
 To charge via SMS, please use the APIs below:
 
@@ -183,7 +209,7 @@ Description:
 -  *AMOUNT*: The number of money you want to charge
 -  *CUSTOM_PAYLOAD*: Some custom string you want to send to your server when transaction finished
 
-#E-Banking Charging
+##E-Banking Charging
 
 To charge via E-Banking, please use the APIs
 
@@ -203,7 +229,7 @@ Description:
 
 - *AMOUNT*: Amount want to charge (int)
 
-#Checking transaction status
+##Checking transaction status
 
 To check status of a transaction, please use checking transaction status API
 
