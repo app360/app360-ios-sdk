@@ -126,6 +126,26 @@ Description:
 - *CLIENT_KEY*: the secret key, pair with the access key, which provided by us
 - *DEFAULT_SCOPED_USER_ID*: Scoped user id that using to login by default
 
+#Quickstart
+
+To save your time, we provide pre-build payment form, include sms, phone card and e-banking charging form. We also provide a form to show all supported payment method, user can choose which method that he/she want to use to purchase item.
+
+Choose payment method form
+
+![Imgur](http://i.imgur.com/zdxr9WI.png)
+
+SMS charging form
+
+![Imgur](http://i.imgur.com/i6QBmw5.png)
+
+Phone card charging form
+
+![Imgur](http://i.imgur.com/V1sE4L6.png)
+
+E-Banking charging form
+
+![Imgur](http://i.imgur.com/bEGz0E7.png)
+
 #Card Charging
 
 To charge via phone card, please use the API below
@@ -135,21 +155,6 @@ To charge via phone card, please use the API below
                                          cardCode:CARD_CODE
                                        cardSerial:CARD_SERIAL
                                           payload:SOME_CUSTOM_PAYLOAD
-                                            block:^(MOGCardResponseObject *responseObject, NSError *error) {
-        if (!error) {
-            NSLog(@"make phone card transaction success! Transaction Id is %@", responseObject.transactionId);
-        } else {
-            NSLog(@"make phone card transaction error: %@", error.description);
-        }
-    }];
-```
-
-Or without payload:
-
-```objective-c
-[MOGPaymentSDK makePhoneCardTransactionWithVendor:VENDOR
-                                         cardCode:CARD_CODE
-                                       cardSerial:CARD_SERIAL
                                             block:^(MOGCardResponseObject *responseObject, NSError *error) {
         if (!error) {
             NSLog(@"make phone card transaction success! Transaction Id is %@", responseObject.transactionId);
@@ -182,19 +187,6 @@ To charge via SMS, please use the APIs below:
     }];
 ```
 
-Or without payload
-
-```objective-c
-[MOGPaymentSDK getSMSSyntaxWithAmount:AMOUNT
-                                block:^(MOGSMSResponseObject *responseObject, NSError *error) {
-        if (!error) {
-            NSLog(@"get sms syntax success! Transaction Id is %@", responseObject.transactionId);
-        } else {
-            NSLog(@"get sms syntax error: %@", error.description);
-        }
-    }];
-```
-
 Description:
 
 -  *AMOUNT*: The number of money you want to charge
@@ -207,19 +199,6 @@ To charge via E-Banking, please use the APIs
 ```objective-c
 [MOGPaymentSDK makeBankingTransactionWithAmount:AMOUNT
                                         payload:@""
-                                          block:^(MOGBankingResponseObject *responseObject, NSError *error) {
-        if (!error) {
-            NSLog(@"make banking transaction successfully! Transaction Id is %@", responseObject.transactionId);
-        } else {
-            NSLog(@"make banking transaction error: %@", error.description);
-        }
-    }];
-```
-
-or without payload
-
-```objective-c
-[MOGPaymentSDK makeBankingTransactionWithAmount:AMOUNT
                                           block:^(MOGBankingResponseObject *responseObject, NSError *error) {
         if (!error) {
             NSLog(@"make banking transaction successfully! Transaction Id is %@", responseObject.transactionId);
@@ -253,6 +232,22 @@ Description:
 - *TRANSACTION_ID*: ID of transaction you want to check
 
 #Release Notes
+
+##Version 1.1.0
+
+**Release date**: 10 Feb 2015
+
+ - **[DELETE]** `MOGAmount` enum
+ - **[DELETE]** `+getSMSSyntaxWithAmount:block:`
+ - **[DELETE]** `+getSMSSyntaxWithAmount:payload:block:`
+ - **[DELETE]** `+makePhoneCardTransactionWithVendor:cardCode:cardSerial:block:`
+ - **[DELETE]** `+makeBankingTransactionWithAmount:block:`
+ - **[ADD]** `MOGSMSAmount` enum
+ - **[ADD]** `+getSMSSyntaxWithSMSAmount:payload:block:`
+ - **[ADD]** `+makeSMSTransactionWithDelegate:datasource:payload:`
+ - **[ADD]** `+makePhoneCardTransactionWithDelegate:datasource:payload:`
+ - **[ADD]** `+makeBankingTransactionWithDelegate:datasource:payload:`
+ - **[ADD]** `+makeTransactionWithPayload:`
 
 ##Version 1.0.0
 
