@@ -130,21 +130,23 @@ Description:
 
 To save your time, we provide pre-build payment form, include sms, phone card and e-banking charging form. We also provide a form to show all supported payment method, user can choose which method that he/she want to use to purchase item.
 
+See App360SDK in action: http://marvl.in/2b575a
+
 ***Choose payment method form***
 
-![Imgur](http://i.imgur.com/zdxr9WI.png)
+![Imgur](http://i.imgur.com/LC0W4Hp.jpg)
 
 ***SMS charging form***
 
-![Imgur](http://i.imgur.com/i6QBmw5.png)
+![Imgur](http://i.imgur.com/aMgJRds.jpg)
 
 ***Phone card charging form***
 
-![Imgur](http://i.imgur.com/V1sE4L6.png)
+![Imgur](http://i.imgur.com/AWiJ7Fy.jpg)
 
 ***E-Banking charging form***
 
-![Imgur](http://i.imgur.com/bEGz0E7.png)
+![Imgur](http://i.imgur.com/XzkpRaT.jpg)
 
 #Card Charging
 
