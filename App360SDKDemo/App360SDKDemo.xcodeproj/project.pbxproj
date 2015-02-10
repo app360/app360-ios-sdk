@@ -14,9 +14,11 @@
 		3E2060041A7A6E8400577443 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E2060031A7A6E8400577443 /* Images.xcassets */; };
 		3E2060071A7A6E8400577443 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E2060051A7A6E8400577443 /* LaunchScreen.xib */; };
 		3E2060131A7A6E8500577443 /* App360SDKDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E2060121A7A6E8500577443 /* App360SDKDemoTests.m */; };
-		3EB34F911A8200AF003ED44F /* App360SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB34F8E1A8200AF003ED44F /* App360SDK.framework */; };
 		3EB34F921A8200AF003ED44F /* MOG.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3EB34F8F1A8200AF003ED44F /* MOG.bundle */; };
 		3EB34F931A8200AF003ED44F /* MWNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB34F901A8200AF003ED44F /* MWNetworking.framework */; };
+		3EB8C7AD1A89E8CD00F7348F /* App360SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB34F8E1A8200AF003ED44F /* App360SDK.framework */; };
+		3EB8C7AE1A89E8CD00F7348F /* App360SDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB34F8E1A8200AF003ED44F /* App360SDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3EB8C7B01A89E8CD00F7348F /* MWNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB34F901A8200AF003ED44F /* MWNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				3EB8C7B01A89E8CD00F7348F /* MWNetworking.framework in Embed Frameworks */,
+				3EB8C7AE1A89E8CD00F7348F /* App360SDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -66,8 +70,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EB8C7AD1A89E8CD00F7348F /* App360SDK.framework in Frameworks */,
 				3EB34F931A8200AF003ED44F /* MWNetworking.framework in Frameworks */,
-				3EB34F911A8200AF003ED44F /* App360SDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,12 +381,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = App360SDKDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -393,12 +399,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = App360SDKDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -20,6 +20,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+#error Remove or comment this line after set your application keys
+    
     [App360SDK initializeWithApplicationId:@"your-application-id"
                                  clientKey:@"your-client-key"
                                      block:^(MOGSession *session, NSError *error) {
