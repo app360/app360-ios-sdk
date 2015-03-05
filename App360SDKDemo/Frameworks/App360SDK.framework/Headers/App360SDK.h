@@ -35,11 +35,6 @@ FOUNDATION_EXPORT const unsigned char App360SDKVersionString[];
                               block:(MOGSessionResultBlock)block;
 
 /*!
- @abstract Show the default login view controller. Use this form to login using anonymous user, facebook account or app360 account...
- */
-+ (void)showLoginViewController;
-
-/*!
  @abstract The current application id that was used to configure App360 SDK framework.
  */
 + (NSString *)getApplicationId;
