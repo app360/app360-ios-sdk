@@ -129,18 +129,18 @@ During initialization, the SDK will try to find and re-opened any cached app-sco
             //you can use device identifier to be scoped user id
             
             NSString *uuid = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
-            [MOGSession openActiveSessionWithScopeId:uuid
-                                            userInfo:nil
-                                               block:^(MOGSession *session, NSError *error) {
+            [MOGSessionManager openActiveSessionWithScopeId:uuid
+                                                   userInfo:nil
+                                                      block:^(MOGSession *session, NSError *error) {
                 
                 //After get session, you can retrieve current scoped user
-                MOGUser *currentUser = [MOGUser currentUser];
+                MOGScopedUser *currentUser = [MOGScopedUser getCurrentUser];
                 NSLog(@"Scoped id: %@", currentUser.scopedId); //it should equals to your device uuid
             }];            
         } else {
             //Session object not null, means last session info found, sdk opens session automatically and return session object
             
-            MOGUser *currentUser = [MOGUser currentUser];
+            MOGScopedUser *currentUser = [MOGScopedUser getCurrentUser];
             NSLog(@"Scoped id: %@", currentUser.scopedId); //it should equals to your device uuid
         }
     }];
@@ -148,7 +148,7 @@ During initialization, the SDK will try to find and re-opened any cached app-sco
 
 ## Session initialization
 
-App-scoped ID is logged in via creating a new session for such ID. There are two ways to open a session (both via MOGSession class):
+App-scoped ID is logged in via creating a new session for such ID. There are two ways to open a session (both via `MOGSessionManager` class):
 
 ###Anonymously
 ```objective-c
@@ -186,7 +186,7 @@ The application receives initialized session via `MOGSessionResultBlock` block: 
 
 In `MOGSessionResultBlock`,  if session is not `nil`, it means session initialize successfully. And if error is not `nil`, its means something wrong happened, please check error object for more information.
 
-In case session initialize successfully, the application could access current session via `[MOGSession activeSession]` and current scoped ID via `[MOGUser currentUser]`
+In case session initialize successfully, the application could access current session via `[MOGSessionManager getCurrentSession]` and current scoped ID via `[MOGUser getCurrentUser]`
 
 ##Linking app-scoped ID with Facebook/Google
 
@@ -292,7 +292,7 @@ Description:
 - *CARD_SERIAL*: The serial of the phone card
 - *SOME_CUSTOM_PAYLOAD*: Some custom string you want to send to your server when transaction finished.
 
-###SMS Charging
+###SMS Request
 
 To charge via SMS, please use the APIs below:
 
@@ -313,7 +313,7 @@ Description:
 -  *AMOUNT*: The number of money you want to charge
 -  *CUSTOM_PAYLOAD*: Some custom string you want to send to your server when transaction finished
 
-###E-Banking Charging
+###E-Banking Request
 
 To charge via E-Banking, please use the APIs
 
