@@ -119,31 +119,46 @@ During initialization, the SDK will try to find and re-opened any cached app-sco
 [App360SDK initializeWithApplicationId:@"your-application-id"
                              clientKey:@"your-client-key"
                                  block:^(MOGSession *session, NSError *error) {
+    
+    if (error) {
+        //init failed
+        NSLog(@"Init SDK and open last session failed with error: %@", error.description);
+    } else if (!session) {
+        //session nil, means last session info is not exist => you must open session by yourself
         
-        if (error) {
-            //init failed
-            NSLog(@"Init SDK and open last session failed with error: %@", error.description);
-        } else if (!session) {
-            //session nil, means last session info is not exist => you must open session by yourself
-            //pre-define scope user id (optional, scoped user id will generate randomly if you not set
-            //you can use device identifier to be scoped user id
+        //pre-define scope user id (optional, scoped user id will generate randomly if you not set
+        //you can use device identifier to be scoped user id
+        
+        NSString *uuid = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+        [MOGSessionManager openActiveSessionWithScopeId:uuid
+                                               userInfo:nil
+                                                  block:^(MOGSession *session, NSError *error) {
             
-            NSString *uuid = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
-            [MOGSessionManager openActiveSessionWithScopeId:uuid
-                                                   userInfo:nil
-                                                      block:^(MOGSession *session, NSError *error) {
-                
-                //After get session, you can retrieve current scoped user
-                MOGScopedUser *currentUser = [MOGScopedUser getCurrentUser];
-                NSLog(@"Scoped id: %@", currentUser.scopedId); //it should equals to your device uuid
-            }];            
-        } else {
-            //Session object not null, means last session info found, sdk opens session automatically and return session object
-            
+            //After get session, you can retrieve current scoped user
             MOGScopedUser *currentUser = [MOGScopedUser getCurrentUser];
             NSLog(@"Scoped id: %@", currentUser.scopedId); //it should equals to your device uuid
-        }
-    }];
+        }];
+        
+        //Or you can open session with facebook access token. ONLY USE ONE OF TWO METHOD HERE
+        
+        /*
+        
+        NSString *facebookToken = @"token-from-facebook";
+        [MOGSessionManager openActiveSessionWithService:kMOGServiceNameFacebook
+                                                  token:facebookToken
+                                                  block:^(MOGSession *session, NSError *error) {
+            
+        }];
+         
+         */
+        
+    } else {
+        //Session object not null, means last session info found, sdk opens session automatically and return session object
+        
+        MOGScopedUser *currentUser = [MOGScopedUser getCurrentUser];
+        NSLog(@"Scoped id: %@", currentUser.scopedId); //it should equals to your device uuid
+    }
+}];
 ```
 
 ## Session initialization
