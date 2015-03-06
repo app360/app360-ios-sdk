@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "MOGConstants.h"
 
-@interface MOGUser : NSObject
+@interface MOGScopedUser : NSObject
 
 /*!
  @abstract Random UUID with lowercase hexadecimal digits. app-scope id
@@ -46,16 +46,7 @@
  *
  *  @return ScopedUser object
  */
-+ (instancetype)currentUser;
-
-//FIXME: Remove it
-
-/*!
- *  Set ScopedUser object as current user
- *
- *  @param user ScopedUser object want to set as current user
- */
-+ (void)setCurrentUser:(MOGUser *)user;
++ (instancetype)getCurrentUser;
 
 /*!
  @abstract Returns the value associated with a given key.

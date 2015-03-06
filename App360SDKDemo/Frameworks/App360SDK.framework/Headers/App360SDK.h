@@ -15,8 +15,9 @@ FOUNDATION_EXPORT double App360SDKVersionNumber;
 //! Project version string for App360SDK.
 FOUNDATION_EXPORT const unsigned char App360SDKVersionString[];
 
-#import "MOGUser.h"
+#import "MOGScopedUser.h"
 #import "MOGSession.h"
+#import "MOGSessionManager.h"
 #import "MOGConstants.h"
 #import "MOGPaymentSDK.h"
 

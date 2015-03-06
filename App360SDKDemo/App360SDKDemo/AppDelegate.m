@@ -36,12 +36,12 @@
             //you can use device identifier to be scoped user id
             
             NSString *uuid = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
-            [MOGSession openActiveSessionWithScopeId:uuid
-                                            userInfo:nil
-                                               block:^(MOGSession *session, NSError *error) {
+            [MOGSessionManager openActiveSessionWithScopeId:uuid
+                                                   userInfo:nil
+                                                      block:^(MOGSession *session, NSError *error) {
                 
                 //After get session, you can retrieve current scoped user
-                MOGUser *currentUser = [MOGUser currentUser];
+                MOGScopedUser *currentUser = [MOGScopedUser getCurrentUser];
                 NSLog(@"Scoped id: %@", currentUser.scopedId); //it should equals to your device uuid
             }];
             
@@ -61,7 +61,7 @@
         } else {
             //Session object not null, means last session info found, sdk opens session automatically and return session object
             
-            MOGUser *currentUser = [MOGUser currentUser];
+            MOGScopedUser *currentUser = [MOGScopedUser getCurrentUser];
             NSLog(@"Scoped id: %@", currentUser.scopedId); //it should equals to your device uuid
         }
     }];

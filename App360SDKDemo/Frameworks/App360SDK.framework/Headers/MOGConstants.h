@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class MOGSession;
-@class MOGUser;
+@class MOGScopedUser;
 @class MOGM360User;
 @class MOGSMSResponseObject;
 @class MOGCardResponseObject;
@@ -280,7 +280,7 @@ typedef void (^MOGBooleanResultBlock)(BOOL succeeded, NSError *error);
 typedef void (^MOGSessionResultBlock)(MOGSession *session, NSError *error);
 
 /*! @abstract User block. Return user if success. If not, return with error */
-typedef void (^MOGUserResultBlock)(MOGUser *user, NSError *error);
+typedef void (^MOGUserResultBlock)(MOGScopedUser *user, NSError *error);
 
 /*! @abstract App360 user block. Return App360 user if success. If not, return with error */
 typedef void (^MOGM360UserResultBlock)(MOGM360User *user, NSError *error);
