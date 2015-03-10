@@ -1,3 +1,43 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Introduction](#introduction)
+- [Requirements](#requirements)
+  - [Development Environment](#development-environment)
+    - [Library compatibility](#library-compatibility)
+    - [Xcode](#xcode)
+- [Getting started with Demo project](#getting-started-with-demo-project)
+- [Setup your project](#setup-your-project)
+  - [Application Id & Client key](#application-id-&-client-key)
+  - [Channeling](#channeling)
+  - [Import the library into your project](#import-the-library-into-your-project)
+  - [Add linker flag](#add-linker-flag)
+- [App-scoped ID](#app-scoped-id)
+- [Integrate your application with App360 SDK](#integrate-your-application-with-app360-sdk)
+  - [SDK Initialization](#sdk-initialization)
+  - [Session initialization](#session-initialization)
+    - [Anonymously](#anonymously)
+    - [With Facebook/Google access token](#with-facebookgoogle-access-token)
+  - [Linking app-scoped ID with Facebook/Google](#linking-app-scoped-id-with-facebookgoogle)
+- [Payment](#payment)
+  - [Payment flow](#payment-flow)
+  - [Using payment form UI](#using-payment-form-ui)
+  - [Using request classes](#using-request-classes)
+    - [Card Request](#card-request)
+    - [SMS Request](#sms-request)
+    - [E-Banking Request](#e-banking-request)
+    - [Checking transaction status](#checking-transaction-status)
+- [Release Notes](#release-notes)
+  - [Version 1.1.0](#version-110)
+  - [Version 1.0.0](#version-100)
+- [Known Issues](#known-issues)
+- [FAQ](#faq)
+- [Support](#support)
+  - [For a technical issue](#for-a-technical-issue)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 
 
 #Introduction
