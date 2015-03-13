@@ -34,7 +34,7 @@ static inline NSString * NSStringFromStatus(MOGTransactionStatus status) {
         case MOGTransactionStatusBegin:
             return @"begin";
         case MOGTransactionStatusPending:
-            return @"processing";
+            return @"pending";
         case MOGTransactionStatusCompleted:
             return @"completed";
         case MOGTransactionStatusFailed:
