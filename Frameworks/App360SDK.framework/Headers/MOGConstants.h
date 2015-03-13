@@ -142,7 +142,7 @@ typedef NS_ENUM(uint8_t, MOGTransactionStatus) {
     /*!
      The transaction received and is being processed
      */
-    MOGTransactionStatusProcessing = 1,
+    MOGTransactionStatusPending = 1,
     /*!
      The transaction is processed completly
      */
