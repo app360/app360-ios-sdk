@@ -1,3 +1,44 @@
+Other language: [English](https://github.com/app360/app360-ios-sdk/blob/master/README.md)
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+- [Giới thiệu](#giới-thiệu)
+- [Yêu cầu](#yêu-cầu)
+  - [Môi trường phát triển](#môi-trường-phát-triển)
+    - [Tương thích](#tương-thích)
+    - [Xcode](#xcode)
+- [Bắt đầu với project Demo](#bắt-đầu-với-project-demo)
+- [Cấu hình project của bạn](#cấu-hình-project-của-bạn)
+  - [Application Id & Client key](#application-id-&-client-key)
+  - [Channeling](#channeling)
+  - [Import SDK vào project của bạn](#import-sdk-vào-project-của-bạn)
+  - [Thêm linker flag](#thêm-linker-flag)
+- [App-scoped ID](#app-scoped-id)
+- [Tích hợp ứng dụng của bạn với App360 SDK](#tích-hợp-ứng-dụng-của-bạn-với-app360-sdk)
+  - [Khởi tạo SDK](#khởi-tạo-sdk)
+  - [Khởi tạo session](#khởi-tạo-session)
+    - [Nặc danh (Anonymously)](#nặc-danh-anonymously)
+    - [Sử dụng Facebook/Google access token](#sử-dụng-facebookgoogle-access-token)
+  - [Liên kết app-scoped ID với Facebook/Google](#liên-kết-app-scoped-id-với-facebookgoogle)
+- [Payment](#payment)
+  - [Payment flow](#payment-flow)
+  - [Using payment form UI](#using-payment-form-ui)
+  - [Using request classes](#using-request-classes)
+    - [Card Request](#card-request)
+    - [SMS Request](#sms-request)
+    - [E-Banking Request](#e-banking-request)
+    - [Kiểm tra trạng thái giao dịch](#kiểm-tra-trạng-thái-giao-dịch)
+- [Release Notes](#release-notes)
+  - [Version 1.1.0](#version-110)
+  - [Version 1.0.0](#version-100)
+- [Known Issues](#known-issues)
+- [FAQ](#faq)
+- [Hỗ trợ](#hỗ-trợ)
+  - [Về những vấn đề kỹ thuật](#về-những-vấn-đề-kỹ-thuật)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 
 
 # Giới thiệu
