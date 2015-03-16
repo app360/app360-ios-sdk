@@ -1,4 +1,4 @@
-Other language: [Vietnamese](https://github.com/app360/app360-ios-sdk/blob/master/README-VI.md)
+**Other language**: [Vietnamese](https://github.com/app360/app360-ios-sdk/blob/master/README-VI.md)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
