@@ -19,6 +19,7 @@
 		3EB8C7AD1A89E8CD00F7348F /* App360SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB34F8E1A8200AF003ED44F /* App360SDK.framework */; };
 		3EB8C7AE1A89E8CD00F7348F /* App360SDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB34F8E1A8200AF003ED44F /* App360SDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3EB8C7B01A89E8CD00F7348F /* MWNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB34F901A8200AF003ED44F /* MWNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3EE86FF01ABA8A93003CE86F /* app360.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3EE86FEF1ABA8A93003CE86F /* app360.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		3EB34F8E1A8200AF003ED44F /* App360SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = App360SDK.framework; sourceTree = "<group>"; };
 		3EB34F8F1A8200AF003ED44F /* MOG.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MOG.bundle; sourceTree = "<group>"; };
 		3EB34F901A8200AF003ED44F /* MWNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MWNetworking.framework; sourceTree = "<group>"; };
+		3EE86FEF1ABA8A93003CE86F /* app360.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = app360.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 		3E205FF51A7A6E8400577443 /* App360SDKDemo */ = {
 			isa = PBXGroup;
 			children = (
+				3EE86FEF1ABA8A93003CE86F /* app360.plist */,
 				3E205FFA1A7A6E8400577443 /* AppDelegate.h */,
 				3E205FFB1A7A6E8400577443 /* AppDelegate.m */,
 				3E205FFD1A7A6E8400577443 /* ViewController.h */,
@@ -239,6 +242,7 @@
 				3E2060021A7A6E8400577443 /* Main.storyboard in Resources */,
 				3EB34F921A8200AF003ED44F /* MOG.bundle in Resources */,
 				3E2060071A7A6E8400577443 /* LaunchScreen.xib in Resources */,
+				3EE86FF01ABA8A93003CE86F /* app360.plist in Resources */,
 				3E2060041A7A6E8400577443 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

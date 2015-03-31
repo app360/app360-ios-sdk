@@ -88,7 +88,7 @@ Chạy project. Ứng dụng mô tả cho bạn khả năng cũng như cách tí
 
 ## Channeling
 
-Để hỗ trợ mô hình channeling, trong project cần chứa một file plist với tên `m360.plist`. File này chưa hai key là `channel` and `sub_channel`. `channel` là kênh phân phối, ví dụ như `mwork`, `appota` còn `sub_channel` là một chuỗi bất kì được định nghĩa bới kênh phân phối.
+Để hỗ trợ mô hình channeling, trong project cần chứa một file plist với tên `app360.plist`. File này chứa hai key là `channel` and `sub_channel`. `channel` là kênh phân phối, ví dụ như `mwork`, `appota` còn `sub_channel` là một chuỗi bất kì được định nghĩa bới kênh phân phối.
 
 ## Import SDK vào project của bạn
 

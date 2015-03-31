@@ -88,7 +88,7 @@ To using any function of App360SDK, you need to configure application id and sec
 
 ##Channeling
 
-In order to support channeling, the project's directory should contain a properties file named `m360.plist`. The file should contain two keys `channel` and `sub_channel`. `channel` is distribution channel such as `mwork`, `appota` while `sub_channel` is arbitrary string defined by the distribution channel itself.
+In order to support channeling, the project's directory should contain a properties file named `app360.plist`. The file should contain two keys `channel` and `sub_channel`. `channel` is distribution channel such as `mwork`, `appota` while `sub_channel` is arbitrary string defined by the distribution channel itself.
 
 ##Import the library into your project
 
