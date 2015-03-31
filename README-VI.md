@@ -410,6 +410,12 @@ Trong đó:
 
 #Release Notes
 
+##Version 1.2.0
+
+**Release date**: 31 Mar 2015
+
+- **[RENAME]** `m360.plist` to `app360.plist`
+
 ##Version 1.1.0
 
 **Release date**: 10 Feb 2015
