@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Mwork. All rights reserved.
 //
 
-#import <App360SDK/App360SDK.h>
+#import "MOGPaymentResponseObject.h"
 
 @interface MOGBankingResponseObject : MOGPaymentResponseObject
 

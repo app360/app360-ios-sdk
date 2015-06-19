@@ -9,17 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
-//! Project version number for App360SDK.
-FOUNDATION_EXPORT double App360SDKVersionNumber;
-
-//! Project version string for App360SDK.
-FOUNDATION_EXPORT const unsigned char App360SDKVersionString[];
-
 #import "MOGScopedUser.h"
 #import "MOGSession.h"
 #import "MOGSessionManager.h"
 #import "MOGConstants.h"
 #import "MOGPaymentSDK.h"
+#import "MOGUtils.h"
 
 @interface App360SDK : NSObject
 
@@ -60,4 +55,14 @@ FOUNDATION_EXPORT const unsigned char App360SDKVersionString[];
  */
 + (NSString *)getSDKVersion;
 
+/**
+ *  Get update URL for app
+ *
+ *  @param block The block to execute
+ *  It should have the following argument signature: `^(NSURL *url, NSError *error)`.
+ */
++ (void)getUpdateURLWithBlock:(MOGURLResultBlock)block;
+
 @end
+
+#define APP360_SDK_VERSION_STRING @"1.4.0"

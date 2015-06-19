@@ -22,8 +22,8 @@
     
 #error Remove or comment this line after set your application keys
     
-    [App360SDK initializeWithApplicationId:<#your-application-id#>
-                                 clientKey:<#your-client-key#>
+    [App360SDK initializeWithApplicationId:<#your-app-id#>
+                                 clientKey:<#your-app-secret#>
                                      block:^(MOGSession *session, NSError *error) {
         
         if (error) {
@@ -31,12 +31,7 @@
             NSLog(@"Init SDK and open last session failed with error: %@", error.description);
         } else if (!session) {
             //session nil, means last session info is not exist => you must open session by yourself
-            
-            //pre-define scope user id (optional, scoped user id will generate randomly if you not set
-            //you can use device identifier to be scoped user id
-            
-            NSString *uuid = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
-            [MOGSessionManager openActiveSessionWithScopeId:uuid
+            [MOGSessionManager openActiveSessionWithScopeId:@"your-user-id"
                                                    userInfo:nil
                                                       block:^(MOGSession *session, NSError *error) {
                 
@@ -44,19 +39,6 @@
                 MOGScopedUser *currentUser = [MOGScopedUser getCurrentUser];
                 NSLog(@"Scoped id: %@", currentUser.scopedId); //it should equals to your device uuid
             }];
-            
-            //Or you can open session with facebook access token. ONLY USE ONE OF TWO METHOD HERE
-            
-            /*
-            
-            NSString *facebookToken = @"token-from-facebook";
-            [MOGSession openActiveSessionWithService:kMOGServiceNameFacebook 
-                                               token:facebookToken 
-                                               block:^(MOGSession *session, NSError *error) {
-                
-            }];
-             
-             */
             
         } else {
             //Session object not null, means last session info found, sdk opens session automatically and return session object

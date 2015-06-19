@@ -10,111 +10,14 @@
 
 #import "MOGSMSItem.h"
 
-//Delegate
-#import "MOGSMSChargingDelegate.h"
-#import "MOGCardChargingDelegate.h"
-#import "MOGBankingChargingDelegate.h"
-
-//Datasource
-#import "MOGSMSChargingDataSource.h"
-#import "MOGCardChargingDataSource.h"
-#import "MOGBankingChargingDataSource.h"
-
-//Response object
+#import "MOGPaymentResponseObject.h"
 #import "MOGSMSResponseObject.h"
 #import "MOGCardResponseObject.h"
 #import "MOGBankingResponseObject.h"
 
 @interface MOGPaymentSDK : NSObject
 
-#pragma mark - Default payment form
-
-/**
- *  Set image use to display on choose payment method form
- *
- *  @param icon image use to display. Normally, set your game/app 's icon as icon image
- */
-+ (void)setIcon:(UIImage *)icon;
-
-/**
- *  Set app name, use to display on choose payment method form
- *
- *  @param displayName Name of game/app
- */
-+ (void)setDisplayName:(NSString *)displayName;
-
-/**
- *  Set description for your game/app
- *
- *  @param description Description for your game/app (version, company, developer, server game, etc....)
- */
-+ (void)setDescription:(NSString *)description;
-
-/**
- *  Set datasource for sms charging form
- *
- *  @param datasource datasource for sms charging form
- */
-+ (void)setSMSDatasource:(id<MOGSMSChargingDataSource>)datasource;
-
-/**
- *  Set delegate for sms charging form
- *
- *  @param delegate delegate for sms charging form
- */
-+ (void)setSMSDelegate:(id<MOGSMSChargingDelegate>)delegate;
-
-/**
- *  Set datasource for card charging form
- *
- *  @param datasource datasource for card charging form
- */
-+ (void)setCardDatasource:(id<MOGCardChargingDataSource>)datasource;
-
-/**
- *  Set delagate for card charging form
- *
- *  @param delegate delegate for card charging form
- */
-+ (void)setCardDelegate:(id<MOGCardChargingDelegate>)delegate;
-
-/**
- *  Set datasource for banking charging form
- *
- *  @param datasource datasource for banking charging form
- */
-+ (void)setBankingDatasource:(id<MOGBankingChargingDataSource>)datasource;
-
-/**
- *  Set delegate for banking charging form
- *
- *  @param delegate delegate for banking charging form
- */
-+ (void)setBankingDelegate:(id<MOGBankingChargingDelegate>)delegate;
-
-/**
- *  Call default charging form of SDK. This form contain all supported payment method form like sms, phone card and e-banking
- *  <b>NOTE: Please set all necessary method above before call this function<b>
- *
- *  @param payload        Custom payload string
- */
-+ (void)makeTransactionWithPayload:(NSString *)payload;
-
 #pragma mark - SMS charging method
-
-/**
- *  Make transaction via SMS. Show default sms form of SDK
- *
- *  @param amount     Available amount value. (required)
- *                    This param in NS_OPTIONS type, so you can add multi values and separate them with charactor '|'.
- *                    Eg: MOGSMSAmount500 | MOGSMSAmount4000
- *  @param delegate   Delegate for sms form
- *  @param datasource Datasource for sms form
- *  @param payload    Custom payload string
- */
-+ (void)makeSMSTransactionWithDelegate:(id<MOGSMSChargingDelegate>)delegate
-                            datasource:(id<MOGSMSChargingDataSource>)datasource
-                               payload:(NSString *)payload;
 
 /**
  *  Get SMS syntax with given amount. Use this method if you wanna build your custom payment form, instead of default form of SDK
@@ -125,23 +28,28 @@
  *  @param payload               Custom payload string generate by applecation, wanna sent with transaction (optional)
  *  @param block                 The block to execute
  *  It should have the following argument signature: `^(MOGSMSResponseObject *responseObject, NSError *error)`.
+ *
+ *  @deprecated       Please use +requestSMSSyntaxWithAmount:vendor:payload:block: instead.
  */
 + (void)getSMSSyntaxWithSMSAmount:(MOGSMSAmount)amount
                           payload:(NSString *)payload
-                            block:(MOGSMSResponseBlock)block;
-
-#pragma mark - Phone card charging method
+                            block:(MOGSMSResponseBlock)block APP360SDK_DEPRECATED("Please use +requestSMSSyntaxWithAmount:vendor:payload:block: instead.");
 
 /**
- *  Make transaction via phone card. Show default card charging form of SDK
+ *  Send request to get sms syntax
  *
- *  @param delegate    Delegate for phone card charging form (optional)
- *  @param datasource  Datasource for exchange description
- *  @param payload     Custom payload string (opetional)
+ *  @param amount  money in vietnam dong. Accept multiple values, separate by commas. For example: `@"500, 1000, 10000, 15000"` (required)
+ *  @param vendor  Mobile network provider. Accepted value: vinaphone, mobifone, viettel (optional)
+ *  @param payload Custom string generate by application to send with transaction. Common usecase of payload is sending gamer_id, server_id with transaction. (optional)
+ *  @param block   The block to execute
+ *  It should have the following argument signature: `^(MOGSMSResponseObject *responseObject, NSError *error)`.
  */
-+ (void)makePhoneCardTransactionWithDelegate:(id<MOGCardChargingDelegate>)delegate
-                                  datasource:(id<MOGCardChargingDataSource>)datasource
-                                     payload:(NSString *)payload;
++ (void)requestSMSSyntaxWithAmount:(NSString *)amount
+                            vendor:(NSString *)vendor
+                           payload:(NSString *)payload
+                             block:(MOGSMSResponseBlock)block;
+
+#pragma mark - Phone card charging method
 
 /**
  *  Make transaction via phone card. Use this method if you wanna build your custom payment form, instead of default form of SDK
@@ -151,26 +59,33 @@
  *  @param cardSerial Serial number (required)
  *  @param payload    Custom payload string generate by applecation, wanna sent with transaction (optional)
  *  @param block      The block to execute
- *  It should have the following argument signature: `^(MOGSMSResponseObject *responseObject, NSError *error)`.
+ *  It should have the following argument signature: `^(MOGCardResponseObject *responseObject, NSError *error)`.
+ *  
+ *  @deprecated       Please use +makeCardTransactionWithVendor:cardCode:cardSerial:payload:block: instead.
  */
 + (void)makePhoneCardTransactionWithVendor:(MOGVendor)vendor
                                   cardCode:(NSString *)cardCode
                                 cardSerial:(NSString *)cardSerial
                                    payload:(NSString *)payload
-                                     block:(MOGCardResponseBlock)block;
-
-#pragma mark - Banking charging method
+                                     block:(MOGCardResponseBlock)block APP360SDK_DEPRECATED("Please use +makeCardTransactionWithVendor:cardCode:cardSerial:payload:block: instead.");
 
 /**
- *  Make transaction via e-banking, using default e-banking charging form of SDK
+ *  Make transaction via phone/game card. Use this method if you wanna build your custom payment form, instead of default form of SDK
  *
- *  @param delegate   Delegate of e-banking charging form
- *  @param datasource Datasource for e-banking charging form
- *  @param payload    Custom payload string
+ *  @param vendor     card provider. Supported values are vinaphone, mobifone, viettel, gate, vcoin, zing, bit... (required)
+ *  @param cardCode   PIN number of card (required)
+ *  @param cardSerial Serial number (required)
+ *  @param payload    Custom payload string generate by application, wanna sent with transaction (optional)
+ *  @param block      The block to execute
+ *  It should have the following argument signature: `^(MOGCardResponseObject *responseObject, NSError *error)`.
  */
-+ (void)makeBankingTransactionWithDelegate:(id<MOGBankingChargingDelegate>)delegate
-                                datasource:(id<MOGBankingChargingDataSource>)datasource
-                                   payload:(NSString *)payload;
++ (void)makeCardTransactionWithVendor:(NSString *)vendor
+                             cardCode:(NSString *)cardCode
+                           cardSerial:(NSString *)cardSerial
+                              payload:(NSString *)payload
+                                block:(MOGCardResponseBlock)block;
+
+#pragma mark - Banking charging method
 
 /**
  *  Make transaction via e-banking. Use this method if you wanna build your custom payment form, instead of default form of SDK

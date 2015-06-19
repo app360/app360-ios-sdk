@@ -1,6 +1,6 @@
-// AFHTTPRequestOperationManager.h
+// MWHTTPRequestOperationManager.h
 //
-// Copyright (c) 2013-2014 MWNetworking (http://afnetworking.com)
+// Copyright (c) 2013-2015 MWNetworking (http://afnetworking.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -36,23 +36,31 @@
 #import "MWSecurityPolicy.h"
 #import "MWNetworkReachabilityManager.h"
 
+#ifndef NS_DESIGNATED_INITIALIZER
+#if __has_attribute(objc_designated_initializer)
+#define NS_DESIGNATED_INITIALIZER __attribute__((objc_designated_initializer))
+#else
+#define NS_DESIGNATED_INITIALIZER
+#endif
+#endif
+
 /**
- `AFHTTPRequestOperationManager` encapsulates the common patterns of communicating with a web application over HTTP, including request creation, response serialization, network reachability monitoring, and security, as well as request operation management.
+ `MWHTTPRequestOperationManager` encapsulates the common patterns of communicating with a web application over HTTP, including request creation, response serialization, network reachability monitoring, and security, as well as request operation management.
 
  ## Subclassing Notes
- 
- Developers targeting iOS 7 or Mac OS X 10.9 or later that deal extensively with a web service are encouraged to subclass `AFHTTPSessionManager`, providing a class method that returns a shared singleton object on which authentication and other configuration can be shared across the application.
- 
- For developers targeting iOS 6 or Mac OS X 10.8 or earlier, `AFHTTPRequestOperationManager` may be used to similar effect.
- 
+
+ Developers targeting iOS 7 or Mac OS X 10.9 or later that deal extensively with a web service are encouraged to subclass `MWHTTPSessionManager`, providing a class method that returns a shared singleton object on which authentication and other configuration can be shared across the application.
+
+ For developers targeting iOS 6 or Mac OS X 10.8 or earlier, `MWHTTPRequestOperationManager` may be used to similar effect.
+
  ## Methods to Override
 
- To change the behavior of all request operation construction for an `AFHTTPRequestOperationManager` subclass, override `HTTPRequestOperationWithRequest:success:failure`.
+ To change the behavior of all request operation construction for an `MWHTTPRequestOperationManager` subclass, override `HTTPRequestOperationWithRequest:success:failure`.
 
  ## Serialization
- 
- Requests created by an HTTP client will contain default headers and encode parameters according to the `requestSerializer` property, which is an object conforming to `<AFURLRequestSerialization>`. 
- 
+
+ Requests created by an HTTP client will contain default headers and encode parameters according to the `requestSerializer` property, which is an object conforming to `<MWURLRequestSerialization>`.
+
  Responses received from the server are automatically validated and serialized by the `responseSerializers` property, which is an object conforming to `<MWURLResponseSerialization>`
 
  ## URL Construction Using Relative Paths
@@ -73,11 +81,11 @@
 
  ## Network Reachability Monitoring
 
- Network reachability status and change monitoring is available through the `reachabilityManager` property. Applications may choose to monitor network reachability conditions in order to prevent or suspend any outbound requests. See `AFNetworkReachabilityManager` for more details.
+ Network reachability status and change monitoring is available through the `reachabilityManager` property. Applications may choose to monitor network reachability conditions in order to prevent or suspend any outbound requests. See `MWNetworkReachabilityManager` for more details.
 
  ## NSSecureCoding & NSCopying Caveats
 
- `AFHTTPRequestOperationManager` conforms to the `NSSecureCoding` and `NSCopying` protocols, allowing operations to be archived to disk, and copied in memory, respectively. There are a few minor caveats to keep in mind, however:
+ `MWHTTPRequestOperationManager` conforms to the `NSSecureCoding` and `NSCopying` protocols, allowing operations to be archived to disk, and copied in memory, respectively. There are a few minor caveats to keep in mind, however:
 
  - Archives and copies of HTTP clients will be initialized with an empty operation queue.
  - NSSecureCoding cannot serialize / deserialize block properties, so an archive of an HTTP client will not include any reachability callback block that may be set.
@@ -91,7 +99,7 @@
 
 /**
  Requests created with `requestWithMethod:URLString:parameters:` & `multipartFormRequestWithMethod:URLString:parameters:constructingBodyWithBlock:` are constructed with a set of default headers using a parameter serialization specified by this property. By default, this is set to an instance of `MWHTTPRequestSerializer`, which serializes query string parameters for `GET`, `HEAD`, and `DELETE` requests, or otherwise URL-form-encodes HTTP message bodies.
- 
+
  @warning `requestSerializer` must not be `nil`.
  */
 @property (nonatomic, strong) MWHTTPRequestSerializer <MWURLRequestSerialization> * requestSerializer;
@@ -131,7 +139,7 @@
 ///-------------------------------
 
 /**
- The security policy used by created request operations to evaluate server trust for secure connections. `AFHTTPRequestOperationManager` uses the `defaultPolicy` unless otherwise specified.
+ The security policy used by created request operations to evaluate server trust for secure connections. `MWHTTPRequestOperationManager` uses the `defaultPolicy` unless otherwise specified.
  */
 @property (nonatomic, strong) MWSecurityPolicy *securityPolicy;
 
@@ -140,7 +148,7 @@
 ///------------------------------------
 
 /**
- The network reachability manager. `AFHTTPRequestOperationManager` uses the `sharedManager` by default.
+ The network reachability manager. `MWHTTPRequestOperationManager` uses the `sharedManager` by default.
  */
 @property (readwrite, nonatomic, strong) MWNetworkReachabilityManager *reachabilityManager;
 
@@ -151,32 +159,40 @@
 /**
  The dispatch queue for the `completionBlock` of request operations. If `NULL` (default), the main queue is used.
  */
+#if OS_OBJECT_HAVE_OBJC_SUPPORT
 @property (nonatomic, strong) dispatch_queue_t completionQueue;
+#else
+@property (nonatomic, assign) dispatch_queue_t completionQueue;
+#endif
 
 /**
  The dispatch group for the `completionBlock` of request operations. If `NULL` (default), a private dispatch group is used.
  */
+#if OS_OBJECT_HAVE_OBJC_SUPPORT
 @property (nonatomic, strong) dispatch_group_t completionGroup;
+#else
+@property (nonatomic, assign) dispatch_group_t completionGroup;
+#endif
 
 ///---------------------------------------------
 /// @name Creating and Initializing HTTP Clients
 ///---------------------------------------------
 
 /**
- Creates and returns an `AFHTTPRequestOperationManager` object.
+ Creates and returns an `MWHTTPRequestOperationManager` object.
  */
 + (instancetype)manager;
 
 /**
- Initializes an `AFHTTPRequestOperationManager` object with the specified base URL.
- 
+ Initializes an `MWHTTPRequestOperationManager` object with the specified base URL.
+
  This is the designated initializer.
- 
+
  @param url The base URL for the HTTP client.
 
  @return The newly-initialized HTTP client
  */
-- (instancetype)initWithBaseURL:(NSURL *)url;
+- (instancetype)initWithBaseURL:(NSURL *)url NS_DESIGNATED_INITIALIZER;
 
 ///---------------------------------------
 /// @name Managing HTTP Request Operations
@@ -247,7 +263,7 @@
 
  @param URLString The URL string used to create the request URL.
  @param parameters The parameters to be encoded according to the client request serializer.
- @param block A block that takes a single argument and appends data to the HTTP body. The block argument is an object adopting the `AFMultipartFormData` protocol.
+ @param block A block that takes a single argument and appends data to the HTTP body. The block argument is an object adopting the `MWMultipartFormData` protocol.
  @param success A block object to be executed when the request operation finishes successfully. This block has no return value and takes two arguments: the request operation, and the response object created by the client response serializer.
  @param failure A block object to be executed when the request operation finishes unsuccessfully, or that finishes successfully, but encountered an error while parsing the response data. This block has no return value and takes a two arguments: the request operation and the error describing the network or parsing error that occurred.
 

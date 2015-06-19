@@ -10,7 +10,6 @@
 
 @class MOGSession;
 @class MOGScopedUser;
-@class MOGM360User;
 @class MOGSMSResponseObject;
 @class MOGCardResponseObject;
 @class MOGBankingResponseObject;
@@ -184,6 +183,31 @@ typedef NS_ENUM(uint8_t, MOGAPICode) {
 };
 
 ///--------------------------------------
+/// @name Vendor name
+///--------------------------------------
+
+/*! @abstract vinaphone */
+extern NSString *const kMOGVendorVinaphone;
+
+/*! @abstract mobifone */
+extern NSString *const kMOGVendorMobifone;
+
+/*! @abstract viettel */
+extern NSString *const kMOGVendorViettel;
+
+/*! @abstract gate */
+extern NSString *const kMOGVendorGate;
+
+/*! @abstract vcoin */
+extern NSString *const kMOGVendorVcoin;
+
+/*! @abstract zing */
+extern NSString *const kMOGVendorZing;
+
+/*! @abstract bit */
+extern NSString *const kMOGVendorBit;
+
+///--------------------------------------
 /// @name Errors
 ///--------------------------------------
 
@@ -234,6 +258,9 @@ extern NSInteger const kMOGErrorGetSMSSyntax;
 /*! @abstract 113: Check transaction status failed. */
 extern NSInteger const kMOGErrorCheckTransactionStatusFailed;
 
+/*! @abstract 114: UID is invalid. */
+extern NSInteger const kMOGErrorUIDInvalid;
+
 ///--------------------------------------
 /// @name Exception
 ///--------------------------------------
@@ -276,9 +303,6 @@ typedef void (^MOGSessionResultBlock)(MOGSession *session, NSError *error);
 /*! @abstract User block. Return user if success. If not, return with error */
 typedef void (^MOGUserResultBlock)(MOGScopedUser *user, NSError *error);
 
-/*! @abstract App360 user block. Return App360 user if success. If not, return with error */
-typedef void (^MOGM360UserResultBlock)(MOGM360User *user, NSError *error);
-
 /*! @abstract SMS charging response block. Return SMS response if success. If not,return with error */
 typedef void (^MOGSMSResponseBlock)(MOGSMSResponseObject *responseObject, NSError *error);
 
@@ -290,6 +314,9 @@ typedef void (^MOGBankingResponseBlock)(MOGBankingResponseObject *responseObject
 
 /*! @abstract payment response block. Return payment response if success. If not,return with error */
 typedef void (^MOGPaymentResponseBlock)(MOGPaymentResponseObject *responseObject, NSError *error);
+
+/*! @abstract NSURL block. Return url if success. If not,return with error */
+typedef void (^MOGURLResultBlock)(NSURL *url, NSError *error);
 
 ///--------------------------------------
 /// @name Deprecated Macros

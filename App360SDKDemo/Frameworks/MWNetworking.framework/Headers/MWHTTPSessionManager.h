@@ -1,6 +1,6 @@
-// AFHTTPSessionManager.h
+// MWHTTPSessionManager.h
 //
-// Copyright (c) 2013-2014 MWNetworking (http://afnetworking.com)
+// Copyright (c) 2013-2015 MWNetworking (http://afnetworking.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -32,14 +32,22 @@
 
 #import "MWURLSessionManager.h"
 
+#ifndef NS_DESIGNATED_INITIALIZER
+#if __has_attribute(objc_designated_initializer)
+#define NS_DESIGNATED_INITIALIZER __attribute__((objc_designated_initializer))
+#else
+#define NS_DESIGNATED_INITIALIZER
+#endif
+#endif
+
 /**
- `AFHTTPSessionManager` is a subclass of `AFURLSessionManager` with convenience methods for making HTTP requests. When a `baseURL` is provided, requests made with the `GET` / `POST` / et al. convenience methods can be made with relative paths.
+ `MWHTTPSessionManager` is a subclass of `MWURLSessionManager` with convenience methods for making HTTP requests. When a `baseURL` is provided, requests made with the `GET` / `POST` / et al. convenience methods can be made with relative paths.
 
  ## Subclassing Notes
 
- Developers targeting iOS 7 or Mac OS X 10.9 or later that deal extensively with a web service are encouraged to subclass `AFHTTPSessionManager`, providing a class method that returns a shared singleton object on which authentication and other configuration can be shared across the application.
+ Developers targeting iOS 7 or Mac OS X 10.9 or later that deal extensively with a web service are encouraged to subclass `MWHTTPSessionManager`, providing a class method that returns a shared singleton object on which authentication and other configuration can be shared across the application.
 
- For developers targeting iOS 6 or Mac OS X 10.8 or earlier, `AFHTTPRequestOperationManager` may be used to similar effect.
+ For developers targeting iOS 6 or Mac OS X 10.8 or earlier, `MWHTTPRequestOperationManager` may be used to similar effect.
 
  ## Methods to Override
 
@@ -47,7 +55,7 @@
 
  ## Serialization
 
- Requests created by an HTTP client will contain default headers and encode parameters according to the `requestSerializer` property, which is an object conforming to `<AFURLRequestSerialization>`.
+ Requests created by an HTTP client will contain default headers and encode parameters according to the `requestSerializer` property, which is an object conforming to `<MWURLRequestSerialization>`.
 
  Responses received from the server are automatically validated and serialized by the `responseSerializers` property, which is an object conforming to `<MWURLResponseSerialization>`
 
@@ -87,7 +95,7 @@
 @property (nonatomic, strong) MWHTTPRequestSerializer <MWURLRequestSerialization> * requestSerializer;
 
 /**
- Responses sent from the server in data tasks created with `dataTaskWithRequest:success:failure:` and run using the `GET` / `POST` / et al. convenience methods are automatically validated and serialized by the response serializer. By default, this property is set to an instance of `AFJSONResponseSerializer`.
+ Responses sent from the server in data tasks created with `dataTaskWithRequest:success:failure:` and run using the `GET` / `POST` / et al. convenience methods are automatically validated and serialized by the response serializer. By default, this property is set to an instance of `MWJSONResponseSerializer`.
 
  @warning `responseSerializer` must not be `nil`.
  */
@@ -98,12 +106,12 @@
 ///---------------------
 
 /**
- Creates and returns an `AFHTTPSessionManager` object.
+ Creates and returns an `MWHTTPSessionManager` object.
  */
 + (instancetype)manager;
 
 /**
- Initializes an `AFHTTPSessionManager` object with the specified base URL.
+ Initializes an `MWHTTPSessionManager` object with the specified base URL.
 
  @param url The base URL for the HTTP client.
 
@@ -112,7 +120,7 @@
 - (instancetype)initWithBaseURL:(NSURL *)url;
 
 /**
- Initializes an `AFHTTPSessionManager` object with the specified base URL.
+ Initializes an `MWHTTPSessionManager` object with the specified base URL.
 
  This is the designated initializer.
 
@@ -122,7 +130,7 @@
  @return The newly-initialized HTTP client
  */
 - (instancetype)initWithBaseURL:(NSURL *)url
-           sessionConfiguration:(NSURLSessionConfiguration *)configuration;
+           sessionConfiguration:(NSURLSessionConfiguration *)configuration NS_DESIGNATED_INITIALIZER;
 
 ///---------------------------
 /// @name Making HTTP Requests
@@ -178,7 +186,7 @@
 
  @param URLString The URL string used to create the request URL.
  @param parameters The parameters to be encoded according to the client request serializer.
- @param block A block that takes a single argument and appends data to the HTTP body. The block argument is an object adopting the `AFMultipartFormData` protocol.
+ @param block A block that takes a single argument and appends data to the HTTP body. The block argument is an object adopting the `MWMultipartFormData` protocol.
  @param success A block object to be executed when the task finishes successfully. This block has no return value and takes two arguments: the data task, and the response object created by the client response serializer.
  @param failure A block object to be executed when the task finishes unsuccessfully, or that finishes successfully, but encountered an error while parsing the response data. This block has no return value and takes a two arguments: the data task and the error describing the network or parsing error that occurred.
 

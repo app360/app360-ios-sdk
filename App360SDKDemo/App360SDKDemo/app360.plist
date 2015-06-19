@@ -6,5 +6,15 @@
 	<string>mwork</string>
 	<key>sub_channel</key>
 	<string></string>
+	<key>utm_source</key>
+	<string></string>
+	<key>utm_medium</key>
+	<string></string>
+	<key>utm_campaign</key>
+	<string></string>
+	<key>utm_term</key>
+	<string></string>
+	<key>utm_content</key>
+	<string></string>
 </dict>
 </plist>
