@@ -102,7 +102,7 @@ Trong phương thức `application:didFinishLaunchingWithOptions`, gọi hàm kh
 ```Objective-C
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   
-  [App360SDK initializeWithApplicationId:@"your-app-id">
+  [App360SDK initializeWithApplicationId:@"your-app-id"
                                clientKey:@"your-app-secret"];
   
   //Your code
