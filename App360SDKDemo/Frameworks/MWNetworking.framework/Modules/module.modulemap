@@ -1,6 +1,0 @@
-framework module MWNetworking {
-  umbrella header "MWNetworking.h"
-
-  export *
-  module * { export * }
-}

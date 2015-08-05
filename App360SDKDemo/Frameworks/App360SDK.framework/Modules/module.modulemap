@@ -1,6 +1,0 @@
-framework module App360SDK {
-  umbrella header "App360SDK.h"
-
-  export *
-  module * { export * }
-}

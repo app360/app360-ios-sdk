@@ -14,11 +14,9 @@
 		3E2060041A7A6E8400577443 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E2060031A7A6E8400577443 /* Images.xcassets */; };
 		3E2060071A7A6E8400577443 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E2060051A7A6E8400577443 /* LaunchScreen.xib */; };
 		3E2060131A7A6E8500577443 /* App360SDKDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E2060121A7A6E8500577443 /* App360SDKDemoTests.m */; };
-		3EB34F921A8200AF003ED44F /* MOG.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3EB34F8F1A8200AF003ED44F /* MOG.bundle */; };
-		3EB34F931A8200AF003ED44F /* MWNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB34F901A8200AF003ED44F /* MWNetworking.framework */; };
-		3EB8C7AD1A89E8CD00F7348F /* App360SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB34F8E1A8200AF003ED44F /* App360SDK.framework */; };
-		3EB8C7AE1A89E8CD00F7348F /* App360SDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB34F8E1A8200AF003ED44F /* App360SDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		3EB8C7B01A89E8CD00F7348F /* MWNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB34F901A8200AF003ED44F /* MWNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3E79FD091B7215FD0085FE4A /* App360SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E79FD061B7215FD0085FE4A /* App360SDK.framework */; };
+		3E79FD0A1B7215FD0085FE4A /* MOG.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3E79FD071B7215FD0085FE4A /* MOG.bundle */; };
+		3E79FD0B1B7215FD0085FE4A /* MWNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E79FD081B7215FD0085FE4A /* MWNetworking.framework */; };
 		3EE86FF01ABA8A93003CE86F /* app360.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3EE86FEF1ABA8A93003CE86F /* app360.plist */; };
 /* End PBXBuildFile section */
 
@@ -39,8 +37,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				3EB8C7B01A89E8CD00F7348F /* MWNetworking.framework in Embed Frameworks */,
-				3EB8C7AE1A89E8CD00F7348F /* App360SDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -61,9 +57,9 @@
 		3E20600C1A7A6E8500577443 /* App360SDKDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = App360SDKDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E2060111A7A6E8500577443 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E2060121A7A6E8500577443 /* App360SDKDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = App360SDKDemoTests.m; sourceTree = "<group>"; };
-		3EB34F8E1A8200AF003ED44F /* App360SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = App360SDK.framework; sourceTree = "<group>"; };
-		3EB34F8F1A8200AF003ED44F /* MOG.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MOG.bundle; sourceTree = "<group>"; };
-		3EB34F901A8200AF003ED44F /* MWNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MWNetworking.framework; sourceTree = "<group>"; };
+		3E79FD061B7215FD0085FE4A /* App360SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = App360SDK.framework; path = ../Frameworks/App360SDK.framework; sourceTree = "<group>"; };
+		3E79FD071B7215FD0085FE4A /* MOG.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = MOG.bundle; path = ../Frameworks/MOG.bundle; sourceTree = "<group>"; };
+		3E79FD081B7215FD0085FE4A /* MWNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MWNetworking.framework; path = ../Frameworks/MWNetworking.framework; sourceTree = "<group>"; };
 		3EE86FEF1ABA8A93003CE86F /* app360.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = app360.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,8 +68,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3EB8C7AD1A89E8CD00F7348F /* App360SDK.framework in Frameworks */,
-				3EB34F931A8200AF003ED44F /* MWNetworking.framework in Frameworks */,
+				3E79FD0B1B7215FD0085FE4A /* MWNetworking.framework in Frameworks */,
+				3E79FD091B7215FD0085FE4A /* App360SDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,7 +86,7 @@
 		3E205FEA1A7A6E8400577443 = {
 			isa = PBXGroup;
 			children = (
-				3EB34F8D1A8200AF003ED44F /* Frameworks */,
+				3E79FD0C1B7216020085FE4A /* Frameworks */,
 				3E205FF51A7A6E8400577443 /* App360SDKDemo */,
 				3E20600F1A7A6E8500577443 /* App360SDKDemoTests */,
 				3E205FF41A7A6E8400577443 /* Products */,
@@ -148,14 +144,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		3EB34F8D1A8200AF003ED44F /* Frameworks */ = {
+		3E79FD0C1B7216020085FE4A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3EB34F8E1A8200AF003ED44F /* App360SDK.framework */,
-				3EB34F8F1A8200AF003ED44F /* MOG.bundle */,
-				3EB34F901A8200AF003ED44F /* MWNetworking.framework */,
+				3E79FD061B7215FD0085FE4A /* App360SDK.framework */,
+				3E79FD071B7215FD0085FE4A /* MOG.bundle */,
+				3E79FD081B7215FD0085FE4A /* MWNetworking.framework */,
 			);
-			path = Frameworks;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,7 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E2060021A7A6E8400577443 /* Main.storyboard in Resources */,
-				3EB34F921A8200AF003ED44F /* MOG.bundle in Resources */,
+				3E79FD0A1B7215FD0085FE4A /* MOG.bundle in Resources */,
 				3E2060071A7A6E8400577443 /* LaunchScreen.xib in Resources */,
 				3EE86FF01ABA8A93003CE86F /* app360.plist in Resources */,
 				3E2060041A7A6E8400577443 /* Images.xcassets in Resources */,
@@ -389,7 +385,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/Frameworks",
+					"\"$(SRCROOT)/../Frameworks\"",
 				);
 				INFOPLIST_FILE = App360SDKDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -407,7 +403,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/Frameworks",
+					"\"$(SRCROOT)/../Frameworks\"",
 				);
 				INFOPLIST_FILE = App360SDKDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
