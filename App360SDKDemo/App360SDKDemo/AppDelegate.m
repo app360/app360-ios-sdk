@@ -20,33 +20,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-#error Remove or comment this line after set your application keys
+#error Remove or comment this line after set your application keys below
     
-    [App360SDK initializeWithApplicationId:<#your-app-id#>
-                                 clientKey:<#your-app-secret#>
-                                     block:^(MOGSession *session, NSError *error) {
-        
-        if (error) {
-            //init failed
-            NSLog(@"Init SDK and open last session failed with error: %@", error.description);
-        } else if (!session) {
-            //session nil, means last session info is not exist => you must open session by yourself
-            [MOGSessionManager openActiveSessionWithScopeId:@"your-user-id"
-                                                   userInfo:nil
-                                                      block:^(MOGSession *session, NSError *error) {
-                
-                //After get session, you can retrieve current scoped user
-                MOGScopedUser *currentUser = [MOGScopedUser getCurrentUser];
-                NSLog(@"Scoped id: %@", currentUser.scopedId); //it should equals to your device uuid
-            }];
-            
-        } else {
-            //Session object not null, means last session info found, sdk opens session automatically and return session object
-            
-            MOGScopedUser *currentUser = [MOGScopedUser getCurrentUser];
-            NSLog(@"Scoped id: %@", currentUser.scopedId); //it should equals to your device uuid
-        }
-    }];
+    [App360SDK initializeWithApplicationId:<#your-app-id#> clientKey:<#your-app-secret#>];
     
     return YES;
 }

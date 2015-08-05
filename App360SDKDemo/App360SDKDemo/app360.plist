@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>channel</key>
-	<string>mwork</string>
+	<string>channel</string>
 	<key>sub_channel</key>
-	<string></string>
+	<string>sub_channel</string>
 	<key>utm_source</key>
 	<string></string>
 	<key>utm_medium</key>

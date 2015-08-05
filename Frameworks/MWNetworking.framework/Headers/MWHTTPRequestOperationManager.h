@@ -320,5 +320,19 @@
                            success:(void (^)(MWHTTPRequestOperation *operation, id responseObject))success
                            failure:(void (^)(MWHTTPRequestOperation *operation, NSError *error))failure;
 
+/**
+ *  Set Authorization header for request with token provided
+ *
+ *  @param token The token value for authorize header
+ */
+- (void)setAuthorizationHeaderFieldWithToken:(NSString *)token;
+
+/**
+ *  Set multi values for HTTP headers
+ *
+ *  @param httpRequestHeader A dictionary of HTTP headers.
+ */
+- (void)setHTTPRequestHeader:(NSDictionary *)httpRequestHeader;
+
 @end
 

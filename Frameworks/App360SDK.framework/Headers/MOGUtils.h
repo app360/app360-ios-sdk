@@ -81,8 +81,4 @@
 
 + (NSNumberFormatter *)numberFormatter;
 
-+ (NSString *)stringFromAmount:(MOGSMSAmount)amount;
-
-+ (MOGSMSAmount)amountFromString:(NSString *)amountString;
-
 @end

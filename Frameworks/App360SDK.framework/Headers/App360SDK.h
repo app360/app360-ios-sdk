@@ -13,22 +13,32 @@
 #import "MOGSession.h"
 #import "MOGSessionManager.h"
 #import "MOGConstants.h"
-#import "MOGPaymentSDK.h"
 #import "MOGUtils.h"
 
 @interface App360SDK : NSObject
 
+/**
+ *  @abstract Initialize SDK. This function does not open any session at all.
+ *
+ *  @param applicationId Id of the app that the token is issued for
+ *  @param clientKey     secret key of the app that the token is issued for
+ */
++ (void)initializeWithApplicationId:(NSString *)applicationId
+                          clientKey:(NSString *)clientKey;
+
 /*!
- @abstract Initialize SDK. This method will open active session with info you provide
- 
- @param applicationId   ID of the app that the token is issued for
- @param clientKey       secret key of the app that the token is issued for
- @param block           The block to execute
- It should have the following argument signature: `^(MOGSession *session, NSError *error)`.
-*/
+ * @abstract Initialize SDK. This method will open active session with info you provide
+ *
+ * @param applicationId   ID of the app that the token is issued for
+ * @param clientKey       secret key of the app that the token is issued for
+ * @param block           The block to execute
+ * It should have the following argument signature: `^(MOGSession *session, NSError *error)`.
+ *
+ *  @deprecated Please use +initializeWithApplicationId:clientKey: instead.
+ */
 + (void)initializeWithApplicationId:(NSString *)applicationId
                           clientKey:(NSString *)clientKey
-                              block:(MOGSessionResultBlock)block;
+                              block:(MOGSessionResultBlock)block APP360SDK_DEPRECATED("Please use +initializeWithApplicationId:clientKey: instead.");
 
 /*!
  @abstract The current application id that was used to configure App360 SDK framework.
@@ -65,4 +75,4 @@
 
 @end
 
-#define APP360_SDK_VERSION_STRING @"1.4.0"
+#define APP360_SDK_VERSION_STRING @"1.5.0"
