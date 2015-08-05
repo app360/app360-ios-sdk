@@ -12,7 +12,7 @@ The App360 iOS SDK supports iOS version 6.0 and above.
 
 | App360SDK Version | Minimum iOS Target | 				Notes 			|
 |:-----------------:|:------------------:|:----------------------------:|
-|1.4.0|6.0|Xcode 6.1 is required. Support armv7, armv7s and arm64 architectures (+ i386 for the simulator)|
+|1.5.0|6.0|Xcode 6.1 is required. Support armv7, armv7s and arm64 architectures (+ i386 for the simulator)|
 
 ###Library compatibility
 
@@ -20,7 +20,7 @@ The App360 iOS SDK supports all iOS 6.0 and above versions. It compiles against 
 
 ###Xcode
 
-We are using Xcode 6.3.2 to create our demo projects. You may encounter some errors if you are using a lower version of Xcode. That's why we recommend you work on the latest (non-beta) available version.
+We are using Xcode 6.4 to create our demo projects. You may encounter some errors if you are using a lower version of Xcode. That's why we recommend you work on the latest (non-beta) available version.
 
 #Getting started with Demo project
 
@@ -84,42 +84,60 @@ If the "Other Linker Flags" option isn't showing, make sure the tabs in the top 
 In order to support channeling, the application's assets directory should contain a properties file named `app360.plist`. The file should contain two keys `channel` and `sub_channel`. `channel` is distribution channel such as mwork, appota while `sub_channel` is arbitrary string defined by the distribution channel itself.
 You can get this file from demo project or download it [here](#)
 
-## 6. Getting started in Xcode
+## 6. Start coding
 
-The SDK could be initialized via App360SDK class. Initialization should be done on AppDelegate. It should be call after you got user id
+### 6.1. Initialize SDK
+
+The SDK could be initialized via App360SDK class. Initialization should be done on AppDelegate.
+
+Open your AppDelegate class and import App360SDK like this:
 
 ```Objective-C
-[App360SDK initializeWithApplicationId:@"your-application-id"
-                             clientKey:@"your-client-key"
-                                 block:^(MOGSession *session, NSError *error) {
- 
-    if (error) {
-        //init failed
-        NSLog(@"Init SDK and open last session failed with error: %@", error.description);
-    } else if (!session) {
-        //session nil, means last session info is not exist => you must open session by yourself
- 
-        NSString *scopedId = @"your-user-id";
-        [MOGSessionManager openActiveSessionWithScopeId:scopedId
-                                               userInfo:nil
-                                                  block:^(MOGSession *session, NSError *error) {
- 
-            //After get session, you can retrieve current scoped user
-            MOGScopedUser *currentUser = [MOGScopedUser getCurrentUser];
-            NSLog(@"Scoped id: %@", currentUser.scopedId); //it should equals to your user id which you set above
-        }];
-    } else {
-        //Session object not null, means last session info found, sdk opens session automatically and return session object
- 
-        MOGScopedUser *currentUser = [MOGScopedUser getCurrentUser];
-        NSLog(@"Scoped id: %@", currentUser.scopedId); //it should equals to your device uuid
-    }
-}];
+#import <App360SDK/App360SDK.h>
+```
+
+In `application:didFinishLaunchingWithOptions` method, call initialize method of App360SDK
+
+```Objective-C
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+  
+  [App360SDK initializeWithApplicationId:@"your-app-id">
+                               clientKey:@"your-app-secret"];
+  
+  //Your code
+}
 ```
 
 You can get `appID` and `appSecret` in the code example above from App360 dashboard. Login your account, choose the app you are working on and you will see the keys you need in `Information` tab
 
 ![App credential](http://i.imgur.com/Bp1ymT0.jpg)
+
+### 6.2. Initialize session
+
+After initialize SDK, you MUST create an appscoped session. All API of App360SDK require to run on a session.
+
+To create session, call `openActiveSessionWithScopeId:userInfo:block:` in `MOGSessionManager` class
+
+```Objective-C
+[MOGSessionManager openActiveSessionWithScopeId:@"scoped-id" userInfo:nil block:^(MOGSession *session, NSError *error) {
+            if (session) {
+                //Create appscoped-id session successfully!
+                //After session create, you can access info of current user via:
+                
+                MOGScopedUser *currentUser = [MOGScopedUser getCurrentUser];
+                NSLog(@"Scoped-id of current user: %@, come from channel: %@, subChannel: %@", currentUser.scopedId, currentUser.channel, currentUser.subChannel);
+            } else {
+                
+                //Something went wrong! Check error object for more information
+                NSLog(@"Create session failed. Error: %@", error.description);
+            }
+        }];
+```
+
+So, what should `scoped-id` value be?
+
+- If your game/app has user, `scoped-id` should be your user id and should call right after authorize user.
+- If your game/app does not have user, `scoped-id` should be device id and you can call as soon as posible. We suggest you call it right after call initialize SDK method.
 
 And done!
 
@@ -128,46 +146,6 @@ And done!
 - Checkout [our document](http://docs.app360.vn/) for more infomation of App360SDK
 - Integrate with [Payment API](http://docs.app360.vn/?page_id=271)
 - If you got any trouble, checkout the [FAG page](http://docs.app360.vn/?page_id=228) or send a support request
-
-#Release Notes
-
-##Version 1.4.0
-
-**Release date**: 18 Jun 2015
- - **[CHANGED]** Separate Payment UI and Payment Request API
- - **[DEPRECATE]** Deprecated `getSMSSyntaxWithSMSAmount` in `MOGPaymentSDK`
- - **[ADDED]** Add `requestSMSSyntaxWithAmount` in `MOGPaymentSDK`
- - **[DEPRECATE]** Deprecated `makePhoneCardTransactionWithVendor` in `MOGPaymentSDK`
- - **[ADDED]** Add `makeCardTransactionWithVendor` in `MOGPaymentSDK`
-
-##Version 1.2.0
-
-**Release date**: 31 Mar 2015
-
- - **[CHANGED]** Rename `m360.plist` to `app360.plist`
-
-##Version 1.1.0
-
-**Release date**: 10 Feb 2015
-
- - **[DELETE]** `MOGAmount` enum
- - **[DELETE]** `+getSMSSyntaxWithAmount:block:`
- - **[DELETE]** `+getSMSSyntaxWithAmount:payload:block:`
- - **[DELETE]** `+makePhoneCardTransactionWithVendor:cardCode:cardSerial:block:`
- - **[DELETE]** `+makeBankingTransactionWithAmount:block:`
- - **[ADD]** `MOGSMSAmount` enum
- - **[ADD]** `+getSMSSyntaxWithSMSAmount:payload:block:`
- - **[ADD]** `+makeSMSTransactionWithDelegate:datasource:payload:`
- - **[ADD]** `+makePhoneCardTransactionWithDelegate:datasource:payload:`
- - **[ADD]** `+makeBankingTransactionWithDelegate:datasource:payload:`
- - **[ADD]** `+makeTransactionWithPayload:`
-
-##Version 1.0.0
-
-**Release date**: 29 Jan 2015
-
- - Initialization version support charging via phone card, SMS and e-banking
- - Support checking transaction status
 
 #Support
 Please contact [us](mailto:support@app360.vn) for general inquiries.

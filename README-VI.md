@@ -85,42 +85,60 @@ Nếu bạn không tìm thấy mục "Other Linker Flags", bạn cần chắc ch
 
 Bạn có thể lấy file này từ project demo hoặc download [tại đây](#)
 
-## 6. Tích hợp code
+## 6. Bắt đầu code
 
-SDK cần được khởi tạo qua class `App360SDK`. Hàm khởi tạo nên gọi sau khi game/app đã lấy được user id
+### 6.1. Khởi tạo SDK
+
+SDK được khởi tạo thông qua class App360SDK.
+
+Mở class AppDelegate và import App360SDK như sau:
 
 ```Objective-C
-[App360SDK initializeWithApplicationId:@"your-application-id"
-                             clientKey:@"your-client-key"
-                                 block:^(MOGSession *session, NSError *error) {
- 
-    if (error) {
-        //init failed
-        NSLog(@"Init SDK and open last session failed with error: %@", error.description);
-    } else if (!session) {
-        //session nil, means last session info is not exist => you must open session by yourself
- 
-        NSString *scopedId = @"your-user-id";
-        [MOGSessionManager openActiveSessionWithScopeId:scopedId
-                                               userInfo:nil
-                                                  block:^(MOGSession *session, NSError *error) {
- 
-            //After get session, you can retrieve current scoped user
-            MOGScopedUser *currentUser = [MOGScopedUser getCurrentUser];
-            NSLog(@"Scoped id: %@", currentUser.scopedId); //it should equals to your user id which you set above
-        }];
-    } else {
-        //Session object not null, means last session info found, sdk opens session automatically and return session object
- 
-        MOGScopedUser *currentUser = [MOGScopedUser getCurrentUser];
-        NSLog(@"Scoped id: %@", currentUser.scopedId); //it should equals to your device uuid
-    }
-}];
+#import <App360SDK/App360SDK.h>
+```
+
+Trong phương thức `application:didFinishLaunchingWithOptions`, gọi hàm khởi tạo của App360SDK
+
+```Objective-C
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+  
+  [App360SDK initializeWithApplicationId:@"your-app-id">
+                               clientKey:@"your-app-secret"];
+  
+  //Your code
+}
 ```
 
 Bạn có thể lấy `appID` và `appSecret` trong code mẫu bên trên từ App360 dashboard. Đăng nhập vào tài khoản của bạn, chọn ứng dụng mà bạn đang tích hợp, bạn sẽ thấy key bạn cần trong tab `Information`
 
 ![App credential](http://i.imgur.com/Bp1ymT0.jpg)
+
+### 6.2. Khởi tạo session
+
+Sau khi khởi tạo SDK, bạn cần phải tạo appscoped session. Tất cả các API của App360SDK đều cần chạy trên một session nào đó.
+
+Để tạo một session, gọi `openActiveSessionWithScopeId:userInfo:block:` trong `MOGSessionManager` class
+
+```Objective-C
+[MOGSessionManager openActiveSessionWithScopeId:@"scoped-id" userInfo:nil block:^(MOGSession *session, NSError *error) {
+            if (session) {
+                //Create appscoped-id session successfully!
+                //After session create, you can access info of current user via:
+                
+                MOGScopedUser *currentUser = [MOGScopedUser getCurrentUser];
+                NSLog(@"Scoped-id of current user: %@, come from channel: %@, subChannel: %@", currentUser.scopedId, currentUser.channel, currentUser.subChannel);
+            } else {
+                
+                //Something went wrong! Check error object for more information
+                NSLog(@"Create session failed. Error: %@", error.description);
+            }
+        }];
+```
+
+Giá trị `scoped-id` nên đặt là gì?
+
+- Nếu game/app của bạn có user, `scoped-id` nên được đặt với giá trị bằng với user id trong hệ thống của bạn và nên được gọi ngay sau khi xác thực xong user.
+- Nếu game/app của bạn không có user, `scoped-id` nên được đặt theo device id và bạn có thể gọi hàm này sớm nhất có thể. Chúng tôi gợi ý bạn có thể gọi ngay sau khi gọi hàm khởi tạo SDK.
 
 Xin chúc mừng. Bạn đã tích hợp xong cơ bản App360SDK
 
@@ -129,46 +147,6 @@ Xin chúc mừng. Bạn đã tích hợp xong cơ bản App360SDK
 - Xem thêm [tài liệu của chúng tôi](http://docs.app360.vn/) để biết thêm những thông tin chi tiết về các hàm của App360SDK.
 - Tích hợp với [Payment API](http://docs.app360.vn/?page_id=271)
 - Nếu gặp bất kì vấn đề gì, vui lòng xem qua [trang FAG](http://docs.app360.vn/?page_id=228) hoặc gửi yêu cầu hỗ trợ cho chúng tôi
-
-#Release Notes
-
-##Version 1.4.0
-
-**Release date**: 18 Jun 2015
- - **[CHANGED]** Separate Payment UI and Payment Request API
- - **[DEPRECATE]** Deprecated `getSMSSyntaxWithSMSAmount` in `MOGPaymentSDK`
- - **[ADDED]** Add `requestSMSSyntaxWithAmount` in `MOGPaymentSDK`
- - **[DEPRECATE]** Deprecated `makePhoneCardTransactionWithVendor` in `MOGPaymentSDK`
- - **[ADDED]** Add `makeCardTransactionWithVendor` in `MOGPaymentSDK`
-
-##Version 1.2.0
-
-**Release date**: 31 Mar 2015
-
- - **[CHANGED]** Rename `m360.plist` to `app360.plist`
-
-##Version 1.1.0
-
-**Release date**: 10 Feb 2015
-
- - **[DELETE]** `MOGAmount` enum
- - **[DELETE]** `+getSMSSyntaxWithAmount:block:`
- - **[DELETE]** `+getSMSSyntaxWithAmount:payload:block:`
- - **[DELETE]** `+makePhoneCardTransactionWithVendor:cardCode:cardSerial:block:`
- - **[DELETE]** `+makeBankingTransactionWithAmount:block:`
- - **[ADD]** `MOGSMSAmount` enum
- - **[ADD]** `+getSMSSyntaxWithSMSAmount:payload:block:`
- - **[ADD]** `+makeSMSTransactionWithDelegate:datasource:payload:`
- - **[ADD]** `+makePhoneCardTransactionWithDelegate:datasource:payload:`
- - **[ADD]** `+makeBankingTransactionWithDelegate:datasource:payload:`
- - **[ADD]** `+makeTransactionWithPayload:`
-
-##Version 1.0.0
-
-**Release date**: 29 Jan 2015
-
- - Initialization version support charging via phone card, SMS and e-banking
- - Support checking transaction status
 
 # Hỗ trợ
 Vui lòng liên hệ với [chúng tôi](mailto:support@app360.vn) về những vấn đề chung.
